@@ -41,6 +41,8 @@ Your app playground must be built with and run on Swift Playgrounds 4.2.1 or lat
 > * [hws - How to render Markdown content in text](https://www.hackingwithswift.com/quick-start/swiftui/how-to-render-markdown-content-in-text)
 > * [Using Markdown in SwiftUI](https://www.appcoda.com/swiftui-markdown/)
 > * [AttributedString](https://www.fatbobman.com/posts/attributedString/)
+> * [🌟正则表达式介绍及常见用法](https://developer.aliyun.com/article/254339?spm=a2c6h.13262185.profile.340.699e167e7REVuk)
+> * [正则表达式possessive、greediness和laziness区别](https://github.com/pro648/tips/blob/master/sources/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8Fpossessive%E3%80%81greediness%E5%92%8Claziness%E5%8C%BA%E5%88%AB.md)
 
 [How to use regular expressions in Swift]: https://www.hackingwithswift.com/articles/108/how-to-use-regular-expressions-in-swift
 
@@ -87,6 +89,7 @@ $: asserts position at the end of a line
 
 ### Shorthand Character Sets
 
+<!-- markdownlint-disable md010 -->
 ```regex
 .	Any character except new line
 \w	Matches alphanumeric characters: [a-zA-Z0-9_]
