@@ -1,3 +1,5 @@
+# [Swift Student Challenge](https://developer.apple.com/wwdc23/swift-student-challenge/)
+
 ## Deadline April 20, 2023, at 14:59 p.m UTC+8
 
 Swift Student Challenge Submission
@@ -9,6 +11,10 @@ PDT: UTC-07:00
 ### Requirements
 
 Your app playground must be built with and run on Swift Playgrounds 4.2.1 or later (requires iPadOS 16 or macOS 13) or Xcode 14 on macOS 13. You may incorporate the use of Apple Pencil.
+
+### Submission
+
+Applicants can view their status by end of business day on Tuesday, May 9, 2023. Winners who opted in to the random selection process to attend the special event at Apple Park will also be notified of their attendance status.
 
 ## Idea
 
@@ -90,7 +96,7 @@ $: asserts position at the end of a line
 \: Escapes the next character. This allows you to match reserved characters `[ ] ( ) { } . * + ? ^ $ \ |`
 ```
 
-### Shorthand Character Sets
+### 3. Shorthand Character Sets
 
 <!-- markdownlint-disable md010 -->
 ```regex
@@ -103,7 +109,7 @@ $: asserts position at the end of a line
 \S	Matches non-whitespace characters: [^\s]
 ```
 
-### Lookarounds
+### 4. Lookarounds 4. 零宽度断言（前后预查）
 
 ### Flags
 
@@ -273,5 +279,7 @@ for match in transactions.matches(of: doubleValueRegex) {
 > Regex literals are available in swift packages, but the "bare-slash literal syntax" is disabled by default. You can either use the `#/.../#` syntax, or pass `-enable-bare-slash-regex` to enable support for `/.../`.
 >
 > [Does the Swift Package Manager support regex literals?](https://stackoverflow.com/questions/75573646/does-the-swift-package-manager-support-regex-literals)
+>
+> -enable-bare-slash-regex
 >
 > Swift 5.7's regex literals can work when using the Swift Package Manager, but they must be explicitly enabled in your Package.swift. By default, the new syntax is disabled since it's a source-breaking language change (due to the existing use of "/" in comment syntax and operators the / operator).

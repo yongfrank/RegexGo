@@ -20,39 +20,40 @@ struct BlankPage: View {
     DEBIT     03/05/2022    Doug's Dugout Dogs         $33.27
     DEBIT     06/03/2022    Oxford Comma Supply Ltd.   £57.33
     """
+    
+    @FocusState private var isFocused: Bool
     var body: some View {
         VStack {
-            TextEditor(text: $transactionOfView)
-                .foregroundColor(Color.gray)
-                .font(.custom("HelveticaNeue", size: 13))
-                .lineSpacing(5)
-            
-            TextField("regex", text: $regexResearch)
-                .textInputAutocapitalization(.never)
-                .autocorrectionDisabled()
-                .textFieldStyle(.roundedBorder)
-                .padding()
-            TextEditor(text: $resultText)
+            TextField("regex", text: $regexResearch, axis: .vertical)
 //                .onAppear {
-//                    let results = transaction.matches(of: research)
-//                    print("=========")
-//                    for result in results {
-//                        print(result.1, result.2)
-//                    }
+//                    UITextField.appearance().clearButtonMode = .whileEditing
 //                }
+                .textFieldStyle(.noReturnTextFieldStyle)
+//                .focused($isFocused)
+//                .onSubmit {
+//                    self.isFocused = false
+//                }
+            
+            SectionView(title: "Data Area: Editable", needPadding: false, sectionType: .inside) {
+                TextEditor(text: $transactionOfView)
+                    .foregroundColor(.secondary)
+                    .font(.custom("HelveticaNeue", size: 10))
+                    .monospaced()
+            }
+//            TextEditor(text: $regexResearch)
+//                .font(.body.monospaced())
+            
+            SectionView(title: "Regex Result Area: Editable", needPadding: false, sectionType: .inside) {
+                TextEditor(text: $resultText)
+                    .monospaced()
+                    .font(.caption2)
+            }
+        }
+        .onAppear {
+            regexStartSearch()
         }
         .onChange(of: regexResearch) { _ in
-            print("\(Date.now) Changing")
-            guard let regex = try? Regex(regexResearch) else {
-                self.resultText = "Error Regex"
-                return
-            }
-            self.resultText = ""
-            let results = transactionOfView.matches(of: regex)
-            for result in results {
-                self.resultText += "\(result.0)\n"
-            }
-            print(results)
+            regexStartSearch()
         }
     }
     
@@ -67,10 +68,53 @@ DEBIT     06/03/2022    Oxford Comma Supply Ltd.   £57.33
 """
     let research = /(CREDIT|DEBIT)\s+(\d{1,2}\/\d{1,2}\/\d{4})/
     
+    func regexStartSearch() {
+        let regexOfDelimiter = Regex {
+            "/"
+            Capture {
+                OneOrMore(.any)
+            }
+            "/"
+        }
+//        let anotherRegexDelimiter = /\/(.*)\//
+        let contentRegexString = regexResearch.firstMatch(of: regexOfDelimiter)
+        guard
+            let contentRegexString = contentRegexString?.1,
+            let regex =
+                try? Regex(String(contentRegexString))
+//                try? Regex(self.regexResearch)
+        else {
+            self.resultText = "Error Regex"
+            return
+        }
+
+        self.resultText = ""
+        let results = transactionOfView.matches(of: regex)
+        for result in results {
+            self.resultText += "\(result.0)\n"
+        }
+    }
 }
 
 struct BlankPage_Previews: PreviewProvider {
     static var previews: some View {
         BlankPage()
+    }
+}
+
+extension TextFieldStyle where Self == NoReturnTextFieldStyle {
+    static var noReturnTextFieldStyle: NoReturnTextFieldStyle {
+        NoReturnTextFieldStyle()
+    }
+}
+
+struct NoReturnTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+        configuration
+            .submitLabel(.search)
+            .font(.body.monospaced())
+            .textInputAutocapitalization(.never)
+            .autocorrectionDisabled()
+            .textFieldStyle(.roundedBorder)
     }
 }

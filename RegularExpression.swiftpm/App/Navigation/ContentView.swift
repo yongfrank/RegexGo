@@ -25,8 +25,29 @@ struct ContentView: View {
             Sidebar(selection: $selection, progress: model.progress)
         } detail: {
             DetailColumn(selection: $selection, model: model)
+                .padding(.horizontal)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
+                    ToolbarItem {
+                        VStack(alignment: .leading) {
+                            Text(model.progress == 1.0 ? "Success" : "Loading")
+                            ProgressView(value: model.progress)
+//                            ProgressView(value: model.progress)
+//                                .progressViewStyle(.circular)
+//                            Text("\(model.progress)")
+                        }
+                    }
+                    ToolbarItem {
+                        Button {
+//                            withAnimation {
+                                self.model.colorScheme = (
+                                    self.model.colorScheme == .light ? .dark : .light
+                                )
+//                            }
+                        } label: {
+                            Image(systemName: self.model.colorScheme == .light ? "moon" : "sun.max")
+                        }
+                    }
                     ToolbarItem {
                         Button {
                             self.selection = self.selection?.previous()

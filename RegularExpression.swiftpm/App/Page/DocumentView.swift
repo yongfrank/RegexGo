@@ -26,38 +26,21 @@ struct DocumentView: View {
     private var indicating: Bool {
         self.title != "" ? true : false
     }
-    @State private var title = ""
+    @State private var title = "Documentation"
 
     var body: some View {
         ZStack(alignment: .top) {
-            ScrollView {
-                Text(content ?? "nil content")
-                    .font(docFont)
-                    .padding()
-                    .border(showingBorder ? .red : .clear)
+            SectionView(title: title, needPadding: false) {
+                ScrollView {
+                    Text(content ?? "nil content")
+                    /// On iOS, the person using the app touches and holds on a selectable Text view, which brings up a system menu with menu items appropriate for the current context. These menu items operate on the entire contents of the Text view; the person can’t select a range of text like they can on macOS.
+                        .textSelection(.enabled)
+                        .font(docFont)
+                        .padding()
+                }
+                .background(.regularMaterial)
             }
-            .border(showingBorder ? .blue : .clear)
-            .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(.quaternary, lineWidth: 8)
-            )
-            .mask(RoundedRectangle(cornerRadius: 16))
-            
-            Text("\(title)")
-                .font(.body.monospaced())
-                .padding()
-                .background(Material.thin)
-                .frame(height: 32)
-                .cornerRadius(32)
-                .shadow(color: .black.opacity(0.1), radius: 12, x: 0, y: 0)
-                .opacity(indicating ? 1 : 0)
-                .padding(.top, 32)
-//            Button("Toggle") {
-//                self.title = self.title == "" ? "hi" : ""
-//            }
         }
-        
-//        .animation(.easeInOut, value: self.width)
     }
     
     

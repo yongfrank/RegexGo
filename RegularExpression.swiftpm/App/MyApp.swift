@@ -15,6 +15,7 @@ struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(model: model)
+                .preferredColorScheme(model.colorScheme)
         }
     }
 }
