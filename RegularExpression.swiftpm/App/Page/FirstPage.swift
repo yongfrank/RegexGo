@@ -7,36 +7,41 @@
 
 import SwiftUI
 
+func isPageSource(_ pannel: Panel?) -> Bool {
+    switch pannel {
+    case .none:
+        return false
+    case .pageSource(_):
+        return true
+    case .about:
+        return false
+    }
+}
+
 struct FirstPage: View {
     @ObservedObject var model: RegularExpressionModel
-    @Binding var navigationSelection: Panel?
+    @Binding var navigationSelection: PageSource
 
     var body: some View {
         HStack {
-            DocumentView(PageSource.history.rawValue)
-            VStack {
-                Text("First PageFirst PageFirst PageFirst PageFirst PageFirst PageFirst PageFirst Page")
-                Button("show") {
-                    model.columnVisibility = .all
-                    navigationSelection = .pageSecond
-                }
+            DocumentView(navigationSelection.description)
+            
+            SectionView {
+                BlankPage()
             }
+//            VStack {
+//                Text("First PageFirst PageFirst PageFirst PageFirst PageFirst PageFirst PageFirst Page")
+//                Button("show") {
+//                    model.columnVisibility = .all
+//                    navigationSelection = .about
+//                }
+//            }
         }
     }
 }
 
-enum PageSource: String {
-    case firstPage = "FirstPage"
-    case readme = "README"
-    case history = "history"
-    
-//    static func page() -> String {
-//        return PageSource.RawValue
-//    }
-}
-
-struct SwiftUIView_Previews: PreviewProvider {
+struct FirstPage_Previews: PreviewProvider {
     static var previews: some View {
-        FirstPage(model: RegularExpressionModel(), navigationSelection: .constant(.pageFirst))
+        FirstPage(model: RegularExpressionModel(), navigationSelection: .constant(.firstPage))
     }
 }

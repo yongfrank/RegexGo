@@ -8,7 +8,7 @@
 import Foundation
 
 /// An enum that represents the person's selection in the app's sidebar.
-enum PageSource: String {
+enum PageSource: String, CaseIterable {
     case firstPage = "FirstPage"
     case readme = "README"
     case history = "history"

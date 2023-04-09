@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// This View is Used for render Markdown file
 struct DocumentView: View {
     private let showingBorder = false
     private let docFont: Font
@@ -55,10 +56,15 @@ struct DocumentView: View {
 //                self.title = self.title == "" ? "hi" : ""
 //            }
         }
-        .padding()
-//        .animation(.easeInOut, value: self.title)
+        
+//        .animation(.easeInOut, value: self.width)
     }
     
+    
+    /// Init Document File
+    /// - Parameters:
+    ///   - filename: markdown filename
+    ///   - docFont: rendered file font
     init(_ filename: String, _ docFont: Font = .body.monospaced()) {
         self.filename = filename
         self.docFont = docFont

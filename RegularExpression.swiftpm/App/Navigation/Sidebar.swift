@@ -7,11 +7,16 @@
 
 import SwiftUI
 
+/// An enum that represents the person's selection in the app's sidebar.
+///
+/// The `Panel` enum encodes the views the person can select in the sidebar, and hence appear in the detail view.
 enum Panel: Hashable {
-    /// The value for the ``First TruckView``.
-    case pageFirst
-    /// The value for the ``Second FeedView``.
-    case pageSecond
+    
+//    /// The value for the ``FirstPage``.
+//    case pageFirst
+    /// The value for the ``SecondPage``.
+    case about
+    case pageSource(PageSource)
 }
 
 /// The navigation sidebar view.
@@ -38,13 +43,51 @@ struct Sidebar: View {
                     .progressViewStyle(.circular)
                 Text("\(progress)")
             }
-            NavigationLink(value: Panel.pageFirst) {
+            
+            ForEach(PageSource.allCases, id: \.self) { page in
+                Button {
+                    self.selection = .pageSource(page)
+                } label: {
+                    Text(page.description)
+                }
+            }
+            NavigationLink(value: Panel.pageSource(.firstPage)) {
                 Label("Page 1", systemImage: "1.circle")
             }
-            NavigationLink(value: Panel.pageSecond) {
+            NavigationLink(value: Panel.about) {
                 Label("Page 2", systemImage: "2.circle")
             }
         }
         .navigationTitle("Regex")
+    }
+}
+
+extension Panel {
+    func next() -> Panel {
+        switch self {
+        case .about:
+            return .about
+        case .pageSource(let page):
+            switch page {
+            case .firstPage:
+                return .about
+            default:
+                return .about
+            }
+        }
+    }
+    
+    func previous() -> Panel {
+        switch self {
+        case .about:
+            return .pageSource(.firstPage)
+        case .pageSource(let page):
+            switch page {
+            case .firstPage:
+                return .pageSource(.firstPage)
+            default:
+                return .pageSource(.firstPage)
+            }
+        }
     }
 }

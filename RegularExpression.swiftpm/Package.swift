@@ -41,6 +41,9 @@ let package = Package(
             path: ".",
             resources: [
                 .process("Resources")
+            ],
+            swiftSettings: [
+                .enableUpcomingFeature("BareSlashRegexLiterals")
             ]
         )
     ]

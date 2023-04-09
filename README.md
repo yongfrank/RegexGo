@@ -44,6 +44,8 @@ Your app playground must be built with and run on Swift Playgrounds 4.2.1 or lat
 > * [🌟正则表达式介绍及常见用法](https://developer.aliyun.com/article/254339?spm=a2c6h.13262185.profile.340.699e167e7REVuk)
 > * [正则表达式possessive、greediness和laziness区别](https://github.com/pro648/tips/blob/master/sources/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8Fpossessive%E3%80%81greediness%E5%92%8Claziness%E5%8C%BA%E5%88%AB.md)
 > * [⭐️ Swift 5.7：應用新的 Regex 語法　在 SwiftUI 和 Combine 驗證使用者的輸入](https://www.appcoda.com.tw/swift-5-7-regex/)
+> * [apple - SE-0354-regex-literals.md](https://github.com/apple/swift-evolution/blob/main/proposals/0354-regex-literals.md)
+> * [A mini-game with collisions in SwiftUI 🔴🔵🟠🟣🟢⚫️ Drag & Drop](https://www.youtube.com/watch?v=ylcEQHYev1U)
 
 [How to use regular expressions in Swift]: https://www.hackingwithswift.com/articles/108/how-to-use-regular-expressions-in-swift
 
@@ -125,6 +127,151 @@ m	多行修饰符：锚点元字符 ^ $ 工作范围在每行的起始。
 * GBKuozhan
 * Unicode: UTF-8
 
+## Swift Regex
+
+> [🌟 hws - regex]
+
+对于从字符串创建的正则表达式，这种安全性是不可能的。
+
+```swift
+let search1 = /My name is (.+?) and I'm (\d+) years old./
+let greeting1 = "My name is Taylor and I'm 26 years old."
+
+if let result = try? search1.wholeMatch(in: greeting1) {
+    print("whole result: \(result.0)")
+    print("Name: \(result.1)")
+    print("Age: \(result.2)")
+}
+/**
+    whole result: My name is Taylor and I'm 26 years old.
+    Name: Taylor
+    Age: 26
+*/
+
+let search2 = /My name is (?<name>.+?) and I'm (?<age>\d+) years old./
+let greeting2 = "My name is Taylor and I'm 26 years old."
+
+if let result = try? search2.wholeMatch(in: greeting2) {
+    print("Name: \(result.name)")
+    print("Age: \(result.age)")
+}
+/**
+    Name: Taylor
+    Age: 26
+ */
+```
+
+但 Swift 更进一步：您可以从字符串创建正则表达式，您可以从正则表达式文字创建它们，但您也可以从类似于 SwiftUI 代码的特定领域语言创建它们。
+
+But Swift goes one step further: you can create regular expressions from strings, you can create them from regex literals, but you can also create them from a domain-specific language similar to SwiftUI code.
+
+```swift
+import RegexBuilder
+
+if let result = try? search3.wholeMatch(in: "My name is frank and I'm 20 years old") {
+    print(result.1)
+    print(result.2)
+}
+
+let search3 = Regex {
+    "My name is "
+    
+    Capture {
+        OneOrMore(.word)
+    }
+    " and I'm "
+    
+    TryCapture {
+        OneOrMore(.digit)
+    } transform: { match in
+        Int(match)
+    }
+    
+    " years old"
+}
+
+```
+
+> [Capture](https://developer.apple.com/documentation/regexbuilder/capture)
+
+A regex component that saves the matched substring, or a transformed result, for access in a regex match.
+
+```swift
+let transactions = """
+    CREDIT     109912311421    Payroll   $69.73
+    CREDIT     105912031123    Travel   $121.54
+    DEBIT      107733291022    Refund    $8.42
+    """
+let regex = Regex {
+    "$"
+    Capture {
+      OneOrMore(.digit)
+      "."
+      Repeat(.digit, count: 2)
+    }
+    Anchor.endOfLine
+}
+
+// The type of each match's output is `(Substring, Substring)`.
+for match in transactions.matches(of: regex) {
+    print("Transaction amount: \(match.1)")
+}
+// Prints "Transaction amount: 69.73"
+// Prints "Transaction amount: 121.54"
+// Prints "Transaction amount: 8.42"
+```
+
+```swift
+let transaction = """
+KIND      DATE          INSTITUTION                AMOUNT
+----------------------------------------------------------------
+CREDIT    03/01/2022    Payroll from employer      $200.23
+CREDIT    03/03/2022    Suspect A                  $2,000,000.00
+?????     03/03/2022    Ted's Pet Rock Sanctuary   $2,000,000.00
+DEBIT     03/05/2022    Doug's Dugout Dogs         $33.27
+DEBIT     06/03/2022    Oxford Comma Supply Ltd.   £57.33
+"""
+
+let results = transaction.matches(of: research)
+print("=========")
+
+for result in results {
+    print(result.1, result.2)
+}
+
+let research = /(CREDIT|DEBIT)\s+(\d{1,2}\/\d{1,2}\/\d{4})/
+```
+
+```swift
+let doubleValueRegex = Regex {
+    "$"
+    Capture {
+        OneOrMore(.digit)
+        "."
+        Repeat(.digit, count: 2)
+    } transform: { Double($0)! }
+    Anchor.endOfLine
+}
+
+// The type of each match's output is `(Substring, Double)`.
+for match in transactions.matches(of: doubleValueRegex) {
+    if match.1 >= 100.0 {
+        print("Large amount: \(match.1)")
+    }
+}
+// Prints "Large amount: 121.54"
+```
+
 ## Errors
 
-[Regex literals in Swift Packages](https://developer.apple.com/forums/thread/719108)
+> [Regex literals in Swift Packages](https://developer.apple.com/forums/thread/719108)
+>
+> Alright, after actually reading the Swift Evolution regarding the Regex literals I noticed the section of literals wrapped with a #. These seem to work. :)
+>
+> [Regex literals in Xcode 14.1 + packages + Swift 5.7](https://forums.swift.org/t/regex-literals-in-xcode-14-1-packages-swift-5-7/61416/3)
+>
+> Regex literals are available in swift packages, but the "bare-slash literal syntax" is disabled by default. You can either use the `#/.../#` syntax, or pass `-enable-bare-slash-regex` to enable support for `/.../`.
+>
+> [Does the Swift Package Manager support regex literals?](https://stackoverflow.com/questions/75573646/does-the-swift-package-manager-support-regex-literals)
+>
+> Swift 5.7's regex literals can work when using the Swift Package Manager, but they must be explicitly enabled in your Package.swift. By default, the new syntax is disabled since it's a source-breaking language change (due to the existing use of "/" in comment syntax and operators the / operator).
