@@ -32,16 +32,16 @@
 		IjpbXSwibmFtZSI6IkFwcE1vZHVsZSIsInBhdGgiOiIuIiwicmVzb3VyY2Vz
 		IjpbeyJwYXRoIjoiUmVzb3VyY2VzIiwicnVsZSI6eyJwcm9jZXNzIjp7fX19
 		XSwic2V0dGluZ3MiOltdLCJ0eXBlIjoiZXhlY3V0YWJsZSJ9XSwidG9vbHNW
-		ZXJzaW9uIjp7Il92ZXJzaW9uIjoiNS42LjAifX0=
+		ZXJzaW9uIjp7Il92ZXJzaW9uIjoiNS44LjAifX0=
 		</data>
 		<key>manifestHash</key>
 		<data>
-		phnIUn023CXNABzoKW4KnGiQCRlPDv2VFXccXwp5ty0=
+		V47xkW7J4f7mmlDHJoPzvVHnUusy+C+ISvhn1S6/qJ8=
 		</data>
 		<key>schemaVersion</key>
 		<integer>4</integer>
 		<key>swiftPMVersionString</key>
-		<string>5.7.1</string>
+		<string>5.8.0</string>
 	</dict>
 </dict>
 </plist>

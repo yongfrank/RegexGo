@@ -13,14 +13,14 @@ struct FirstPage: View {
 
     var body: some View {
         HStack {
+            DocumentView(PageSource.history.rawValue)
             VStack {
-                Text("First Page")
+                Text("First PageFirst PageFirst PageFirst PageFirst PageFirst PageFirst PageFirst Page")
                 Button("show") {
                     model.columnVisibility = .all
                     navigationSelection = .pageSecond
                 }
             }
-            DocumentView(PageSource.readme.rawValue)
         }
     }
 }
@@ -28,6 +28,11 @@ struct FirstPage: View {
 enum PageSource: String {
     case firstPage = "FirstPage"
     case readme = "README"
+    case history = "history"
+    
+//    static func page() -> String {
+//        return PageSource.RawValue
+//    }
 }
 
 struct SwiftUIView_Previews: PreviewProvider {

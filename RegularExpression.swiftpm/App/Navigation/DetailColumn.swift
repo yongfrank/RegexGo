@@ -20,11 +20,13 @@ struct DetailColumn: View {
     /// This view presents the appropriate view in response to the person's selection in the ``Sidebar``. See ``Panel``
     /// for the views that `DetailColumn`  presents.
     var body: some View {
-        switch selection ?? .pageFirst {
+        switch selection ?? nil {
         case .pageFirst:
             FirstPage(model: model, navigationSelection: $selection)
         case .pageSecond:
-            Text("second")
+            SecondPage()
+        case .none:
+            BlankPage()
         }
     }
 

@@ -13,13 +13,16 @@ struct ContentView: View {
     @State private var employeeIds: Set<Page.ID> = []
     @ObservedObject var model: RegularExpressionModel
     
-    @State private var selection: Panel? = Panel.pageFirst
+    @State private var selection: Panel? = nil
     
     var body: some View {
         NavigationSplitView(columnVisibility: $model.columnVisibility) {
             Sidebar(selection: $selection, progress: model.progress)
         } detail: {
-            DetailColumn(selection: $selection, model: model)
+            NavigationStack {
+                DetailColumn(selection: $selection, model: model)
+                    .navigationBarTitleDisplayMode(.inline)
+            }
         }
     }
 }

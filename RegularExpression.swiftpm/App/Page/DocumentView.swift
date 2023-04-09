@@ -21,14 +21,42 @@ struct DocumentView: View {
         }
         return "Unable to load"
     }
+    
+    private var indicating: Bool {
+        self.title != "" ? true : false
+    }
+    @State private var title = ""
 
     var body: some View {
-        ScrollView {
-            Text(content ?? "nil content")
-                .font(docFont)
-                .border(showingBorder ? .red : .clear)
+        ZStack(alignment: .top) {
+            ScrollView {
+                Text(content ?? "nil content")
+                    .font(docFont)
+                    .padding()
+                    .border(showingBorder ? .red : .clear)
+            }
+            .border(showingBorder ? .blue : .clear)
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(.quaternary, lineWidth: 8)
+            )
+            .mask(RoundedRectangle(cornerRadius: 16))
+            
+            Text("\(title)")
+                .font(.body.monospaced())
+                .padding()
+                .background(Material.thin)
+                .frame(height: 32)
+                .cornerRadius(32)
+                .shadow(color: .black.opacity(0.1), radius: 12, x: 0, y: 0)
+                .opacity(indicating ? 1 : 0)
+                .padding(.top, 32)
+//            Button("Toggle") {
+//                self.title = self.title == "" ? "hi" : ""
+//            }
         }
-        .border(showingBorder ? .blue : .clear)
+        .padding()
+//        .animation(.easeInOut, value: self.title)
     }
     
     init(_ filename: String, _ docFont: Font = .body.monospaced()) {
@@ -39,6 +67,6 @@ struct DocumentView: View {
 
 struct DocumentView_Previews: PreviewProvider {
     static var previews: some View {
-        DocumentView("README")
+        DocumentView(PageSource.history.rawValue)
     }
 }

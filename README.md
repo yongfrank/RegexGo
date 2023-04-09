@@ -43,11 +43,12 @@ Your app playground must be built with and run on Swift Playgrounds 4.2.1 or lat
 > * [AttributedString](https://www.fatbobman.com/posts/attributedString/)
 > * [🌟正则表达式介绍及常见用法](https://developer.aliyun.com/article/254339?spm=a2c6h.13262185.profile.340.699e167e7REVuk)
 > * [正则表达式possessive、greediness和laziness区别](https://github.com/pro648/tips/blob/master/sources/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8Fpossessive%E3%80%81greediness%E5%92%8Claziness%E5%8C%BA%E5%88%AB.md)
+> * [⭐️ Swift 5.7：應用新的 Regex 語法　在 SwiftUI 和 Combine 驗證使用者的輸入](https://www.appcoda.com.tw/swift-5-7-regex/)
 
 [How to use regular expressions in Swift]: https://www.hackingwithswift.com/articles/108/how-to-use-regular-expressions-in-swift
 
 [Learn Regex]: https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md
-[hws - regex]: https://www.hackingwithswift.com/swift/5.7/regexes
+[🌟 hws - regex]: https://www.hackingwithswift.com/swift/5.7/regexes
 
 ## Regex Example
 
@@ -111,3 +112,19 @@ m	多行修饰符：锚点元字符 ^ $ 工作范围在每行的起始。
 ```
 
 ### Greedy vs Lazy Matching
+
+### Unicode
+
+* Character 字符
+* Character Set 字符集
+* Character Encoding 字符编码，比特 bit 0 1
+
+码位（放置字符），码空间
+
+* GB2312 2^8 = 256 2^16 = 65536
+* GBKuozhan
+* Unicode: UTF-8
+
+## Errors
+
+[Regex literals in Swift Packages](https://developer.apple.com/forums/thread/719108)
