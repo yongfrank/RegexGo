@@ -13,6 +13,7 @@ struct DocumentView: View {
     private let docFont: Font
     
     private let filename: String
+    private let title: String
     
     private var content: LocalizedStringKey? {
         if let filepathUrl = Bundle.main.url(forResource: filename, withExtension: "md") {
@@ -26,7 +27,6 @@ struct DocumentView: View {
     private var indicating: Bool {
         self.title != "" ? true : false
     }
-    @State private var title = "Documentation"
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -48,9 +48,10 @@ struct DocumentView: View {
     /// - Parameters:
     ///   - filename: markdown filename
     ///   - docFont: rendered file font
-    init(_ filename: String, _ docFont: Font = .body.monospaced()) {
+    init(_ filename: String, _ docFont: Font = .body.monospaced(), title: String = "Documentation") {
         self.filename = filename
         self.docFont = docFont
+        self.title = title
     }
 }
 

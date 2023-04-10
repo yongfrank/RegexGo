@@ -24,7 +24,7 @@ struct FirstPage: View {
 
     var body: some View {
         HStack {
-            DocumentView(navigationSelection.description)
+            DocumentView(navigationSelection.description, title: navigationSelection.description)
             
             SectionView {
                 BlankPage()

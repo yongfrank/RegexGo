@@ -39,7 +39,7 @@ Applicants can view their status by end of business day on Tuesday, May 9, 2023.
 * [Advanced regular expression matching with NSRegularExpression](https://www.hackingwithswift.com/articles/154/advanced-regular-expression-matching-with-nsregularexpression)
 * [Learn Regex - GitHub][Learn Regex]
 * [Regex](https://developer.apple.com/documentation/swift/regex)
-* [hws - regex]
+* [🌟 hws - regex]
 * [Meet Swift Regex](https://developer.apple.com/videos/play/wwdc2022/110357/)
 * [Validation With Regex in Swift 5.7 Using SwiftUI and Combine](https://betterprogramming.pub/validation-with-regex-before-ios-16-using-swiftui-and-combine-567817909d1)
 
@@ -54,7 +54,6 @@ Applicants can view their status by end of business day on Tuesday, May 9, 2023.
 > * [A mini-game with collisions in SwiftUI 🔴🔵🟠🟣🟢⚫️ Drag & Drop](https://www.youtube.com/watch?v=ylcEQHYev1U)
 
 [How to use regular expressions in Swift]: https://www.hackingwithswift.com/articles/108/how-to-use-regular-expressions-in-swift
-
 [Learn Regex]: https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md
 [🌟 hws - regex]: https://www.hackingwithswift.com/swift/5.7/regexes
 
@@ -266,6 +265,22 @@ for match in transactions.matches(of: doubleValueRegex) {
     }
 }
 // Prints "Large amount: 121.54"
+```
+
+### Regex in Code
+
+> [Xcode + Regular Expression = 🤯](https://youtu.be/c_0Q2rsnuLo)
+
+```swift
+firstNameTextField.placeholder = NSLocalizedString("person.firstName.placeholder", comment: "")
+lastNameTextField.placeholder = NSLocalizedString("person.lastName.placeholder", comment: "")
+ageTextField.placeholder = NSLocalizedString("person.lastName.placeholder", comment: "")
+```
+
+```regex
+firstNameTextField.placeholder = NSLocalizedString\((".*"), comment: ""\)
+
+$1.localized
 ```
 
 ## Errors

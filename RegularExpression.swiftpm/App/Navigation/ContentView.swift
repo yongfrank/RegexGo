@@ -20,6 +20,7 @@ struct ContentView: View {
     
     @State private var selection: Panel? = Panel.pageSource(.firstPage)
     
+    @State private var isNight = false
     var body: some View {
         NavigationSplitView(columnVisibility: $model.columnVisibility) {
             Sidebar(selection: $selection, progress: model.progress)
@@ -28,7 +29,7 @@ struct ContentView: View {
                 .padding(.horizontal)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    ToolbarItem {
+                    ToolbarItemGroup(placement: .principal) {
                         VStack(alignment: .leading) {
                             Text(model.progress == 1.0 ? "Success" : "Loading")
                             ProgressView(value: model.progress)
@@ -36,8 +37,10 @@ struct ContentView: View {
 //                                .progressViewStyle(.circular)
 //                            Text("\(model.progress)")
                         }
+                        .frame(width: 200)
                     }
-                    ToolbarItem {
+                    
+                    ToolbarItemGroup {
                         Button {
 //                            withAnimation {
                                 self.model.colorScheme = (
@@ -48,15 +51,13 @@ struct ContentView: View {
                             Image(systemName: self.model.colorScheme == .light ? "moon" : "sun.max")
                         }
                     }
-                    ToolbarItem {
+                    ToolbarItemGroup {
                         Button {
                             self.selection = self.selection?.previous()
                         } label: {
                             Image(systemName: "arrowtriangle.left")
                         }
-                    }
-
-                    ToolbarItem {
+                        
                         Button {
                             self.selection = self.selection?.next()
                         } label: {
@@ -64,6 +65,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .toolbarBackground(.visible, for: .automatic)
         }
     }
 }
