@@ -10,7 +10,7 @@ import AppleProductTypes
 let package = Package(
     name: "CoverFlow",
     platforms: [
-        .iOS("15.2")
+        .iOS("16.0")
     ],
     products: [
         .iOSApplication(
@@ -37,7 +37,11 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "AppModule",
-            path: "."
+            path: ".",
+            swiftSettings: [
+        //                .enableUpcomingFeature("BareSlashRegexLiterals")
+                .unsafeFlags(["-enable-bare-slash-regex"])
+            ]
         )
     ]
 )
