@@ -12,7 +12,7 @@ import SwiftUI
 public class RegularExpressionModel: ObservableObject {
     @Published var progress: Double = 0.0
     @Published var columnVisibility = NavigationSplitViewVisibility.automatic
-    @Published var colorScheme: ColorScheme = .light
+    @Published var colorScheme: ColorScheme = .dark
     private var cancellable: AnyCancellable?
 
     init() {

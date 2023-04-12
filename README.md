@@ -52,6 +52,15 @@ Applicants can view their status by end of business day on Tuesday, May 9, 2023.
 > * [⭐️ Swift 5.7：應用新的 Regex 語法　在 SwiftUI 和 Combine 驗證使用者的輸入](https://www.appcoda.com.tw/swift-5-7-regex/)
 > * [apple - SE-0354-regex-literals.md](https://github.com/apple/swift-evolution/blob/main/proposals/0354-regex-literals.md)
 > * [A mini-game with collisions in SwiftUI 🔴🔵🟠🟣🟢⚫️ Drag & Drop](https://www.youtube.com/watch?v=ylcEQHYev1U)
+> * [Code Editor](https://iosexample.com/codeeditorview-swift-package-provides-a-swiftui-view-implementing-a-rich-code-editor-for-ios-and-macos/)
+> * [SwiftUI：使用 TextKit API 的语法高亮器 | SwiftUI 2.0 | NSAttributedText | 文本存储](https://www.youtube.com/watch?v=Q3qDPQfEBms)
+> * [SwiftUI Canvas Editor With Advanced Gestures & Haptics - MVVM - Xcode 13 - SwiftUI Tutorials](https://www.youtube.com/watch?v=zvdHmnp8sLA)
+> * [SwiftUI Minimal App UI - Dulingo Like Drag & Drop - Xcode 13 - SwiftUI Tutorial](https://www.youtube.com/watch?v=owo6Xtvad4c)
+> * [SwiftUI 2.0 Drag & Drop - Reordering Grid View Items - Custom Picker - SwiftUI Tutorials](https://www.youtube.com/watch?v=h25rGhYrl5I)
+> * [SwiftUI Canvas Editor With Advanced Gestures & Haptics - MVVM - Xcode 13 - SwiftUI Tutorials](https://www.youtube.com/watch?v=zvdHmnp8sLA)
+> * [SwiftUI Live: Building a drag and drop word game](https://www.youtube.com/watch?v=ffV_fYcFoX0)
+> * [Build a Trello Clone App with SwiftUI](https://www.youtube.com/watch?v=Of_20rSjk7Y)
+> * [취준생을 위한 스위프트UI 앱만들기 드래그 앤 드랍 SwiftUI 3.0 fundamental Tutorial (2021) ios swiftui drag and drop](https://www.youtube.com/watch?v=Of_20rSjk7Y)
 
 [How to use regular expressions in Swift]: https://www.hackingwithswift.com/articles/108/how-to-use-regular-expressions-in-swift
 [Learn Regex]: https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md
