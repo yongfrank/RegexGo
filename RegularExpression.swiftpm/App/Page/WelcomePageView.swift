@@ -22,23 +22,27 @@ struct WelcomePageView: View {
         WidthThresholdReader(widthThreshold: 520) { proxy in
             Grid(horizontalSpacing: 12, verticalSpacing: 12) {
                 if proxy.isCompact {
-                    
+                    docView
+                    playGroundView
                 } else {
-                    
+                    GridRow {
+                        docView
+                        playGroundView
+                    }
                 }
             }
+            .containerShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+            .frame(maxWidth: 1200)
         }
     }
     
     var docView: some View {
-        SectionView {
-            Text("hi")
-        }
+        DocumentView(.welcome) {}
     }
     
     var playGroundView: some View {
-        SectionView {
-            Text("wo")
+        SectionView(title: "Playground") {
+            PasswordView()
         }
     }
 }

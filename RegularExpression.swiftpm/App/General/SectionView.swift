@@ -13,13 +13,25 @@ import SwiftUI
 struct SectionView<Content: View>: View {
     
     private var title = ""
+    private let showingBorder = false
+    private let content: Content
+    private let needPadding: Bool
+    private let sectionType: BorderType
+    private let isTitlePositionTop: Bool
+    private let isTitleShowAlways: Bool
     
-    let content: Content
-    let needPadding: Bool
-    let sectionType: BorderType
-
+    @State private var dragOffset = CGSize.zero
+    @State private var slideDirection: SlideDirection = .up
+    @State private var showTitle = false {
+        willSet {
+            if showTitle == true {
+                dragOffset = .zero
+            }
+        }
+    }
+    
     var body: some View {
-        ZStack(alignment: .bottom) {
+        ZStack(alignment: isTitlePositionTop ? .top : .bottom) {
             self.content
 //                .padding(.top, 52)
                 .padding(needPadding ? .all : [])
@@ -30,53 +42,108 @@ struct SectionView<Content: View>: View {
                 )
                 .mask(RoundedRectangle(cornerRadius: sectionType.cornerRadius))
             
-            Text("\(title)")
-                .font(.body.monospaced())
-                .padding()
-                .background(Material.ultraThin)
-                .frame(height: 32)
-                .cornerRadius(32)
-                .shadow(color: .black.opacity(0.1), radius: 12, x: 0, y: 0)
-                .opacity(title == "" ? 0 : 1)
-                .padding(.bottom, 16)
+            if showTitle && title != "" {
+                Text("\(title)")
+                    .font(.body.monospaced())
+                    .padding()
+                    .background(Material.ultraThin)
+                    .frame(height: 32)
+                    .cornerRadius(32)
+                    .shadow(color: .black.opacity(0.1), radius: 12, x: 0, y: 0)
+//                    .opacity(title == "" ? 0 : 1)
+                    .padding(isTitlePositionTop ? .top : .bottom, 16)
+                    .offset(dragOffset)
+                    .gesture(
+                        DragGesture()
+                            .onChanged({ gesture in
+                                if isTitlePositionTop ? gesture.translation.height > 0 : gesture.translation.height < 0 {
+                                    dragOffset.height = 0
+                                } else if isTitlePositionTop ? gesture.translation.height > 30 : gesture.translation.height < 30 {
+                                    dragOffset.height = gesture.translation.height
+                                } else {
+                                    dragOffset.height = 30
+                                }
+                            })
+                            .onEnded({ gesture in
+                                withAnimation {
+                                    showTitle.toggle()
+                                }
+                            })
+                    )
+                    .transition(slideDirection == .up ? .push(from: .bottom) : .push(from: .top))
+                    .zIndex(1)
+            }
+        }
+        .onChange(of: showTitle, perform: { _ in
+            self.slideDirection.toggle()
+        })
+        .onAppear {
+            slideDirection = isTitlePositionTop ? .down : .up
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                withAnimation(.spring()) {
+                    showTitle = true
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                withAnimation(.spring()) {
+                    showTitle = isTitleShowAlways ? true : false
+                }
+            }
         }
     }
-    
-    private let showingBorder = false
-    
-    init(title: String = "", needPadding: Bool = true, sectionType: BorderType = .outer, @ViewBuilder content: () -> Content) {
+}
+
+extension SectionView {
+
+    /// Beautiful section contains content
+    /// - Parameters:
+    ///   - title: HUD Title
+    ///   - needPadding: padding from four side
+    ///   - sectionType: ``.outer`` means thick border
+    ///   - isTitlePositionUp: `true` means that title will show up in the top
+    ///   - isTitleShowAlways: `true` means that title will not disappear
+    ///   - content: What's inside section
+    init(title: String = "", needPadding: Bool = true, sectionType: BorderType = .outer,
+         isTitlePositionUp: Bool = false,
+         isTitleShowAlways: Bool = false,
+         @ViewBuilder content: () -> Content) {
         self.content = content()
         self.title = title
         self.needPadding = needPadding
         self.sectionType = sectionType
+        self.isTitlePositionTop = isTitlePositionUp
+        self.isTitleShowAlways = false
     }
-}
-
-enum BorderType: CGFloat {
-    case outer = 8, inside = 2
     
-    var lineWidth: CGFloat {
-        return self.rawValue
+    enum BorderType: CGFloat {
+        case outer = 8, inside = 2
+        
+        var lineWidth: CGFloat {
+            return self.rawValue
+        }
+        var cornerRadius: CGFloat {
+            switch self {
+            case .outer:
+                return 16
+            case .inside:
+                return 5
+            }
+        }
     }
-    var cornerRadius: CGFloat {
-        switch self {
-        case .outer:
-            return 16
-        case .inside:
-            return 5
+    
+    enum SlideDirection {
+        case up
+        case down
+        
+        mutating func toggle() {
+            self = self == .up ? .down : .up
         }
     }
 }
 
 struct SectionView_Previews: PreviewProvider {
     static var previews: some View {
-//        SectionView {
-//            VStack {
-//                Text("hi")
-//                Text(":")
-//            }
-//        }
-        SectionView {
+        SectionView(title: "Hello") {
             VStack {
                 Text("hihihihihihihihihihihi")
                 Text("hihihihihihihihihihihi")

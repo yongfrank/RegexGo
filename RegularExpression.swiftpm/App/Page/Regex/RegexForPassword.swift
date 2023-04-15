@@ -1,5 +1,5 @@
 //
-//  Regex.swift
+//  RegexForPassword.swift
 //  https://www.appcoda.com.tw/swift-5-7-regex/
 //
 //  Created by Chu Yong on 4/5/23.
@@ -26,6 +26,41 @@ enum Rules:String, CaseIterable {
     case spaceRule = "[\\S]"
     case capitalFirst = "^[A-Z]+[A-Za-z]*"
     case punctuationCharacters = "[:punct:]"
+}
+
+extension Rules {
+    static let passwordGameCases: [Rules] = [.alphaRule, .digitRule, .limitedAlphaNumericCombined, .limitedAlphaNumericSplit, .spaceRule]
+    
+    var name: String {
+        switch self {
+        case .alphaRule:
+            return "🔤 Alpha Only"
+        case .digitRule:
+            return "🔢 Digit Only"
+        case .limitedAlphaNumericCombined:
+            return "🔡 🔢 Digit & Alpha"
+//        case .limitedAlphaNumericSplit:
+//            return ""
+        case .currencyRule:
+            return "Curreny Rule"
+//        case .wordRule:
+//            <#code#>
+//        case .numericRule:
+//            <#code#>
+//        case .numberFirst:
+//            <#code#>
+//        case .numberLast:
+//            <#code#>
+//        case .spaceRule:
+//            <#code#>
+//        case .capitalFirst:
+//            <#code#>
+//        case .punctuationCharacters:
+//            <#code#>
+        default:
+            return String(describing: self)
+        }
+    }
 }
 
 enum Crips:String, CaseIterable {

@@ -1,16 +1,16 @@
+//
+//  SwiftUIView.swift
+//
+//
+//  Created by Chu Yong on 4/15/23.
+//
+
 /*
 See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 Reports whether the view is horizontally compact.
 */
-
-//
-//  SwiftUIView.swift
-//  
-//
-//  Created by Chu Yong on 4/15/23.
-//
 
 import SwiftUI
 
@@ -20,7 +20,7 @@ import SwiftUI
  Several elements are used to decide if a view is compressed:
  - Width
  - Dynamic Type size
- - Horizontal size class (on iOS)
+ - Horizontal size class & VerticalSizeClass(for Landscape or Portrait detection) (on iOS)
  */
 struct WidthThresholdReader<Content: View>: View {
     var widthThreshold: Double = 400
@@ -28,6 +28,7 @@ struct WidthThresholdReader<Content: View>: View {
     @ViewBuilder var content: (WidthThresholdProxy) -> Content
     
     #if os(iOS)
+    @Environment (\.verticalSizeClass) private var verticalSizeClass
     @Environment(\.horizontalSizeClass) private var sizeClass
     #endif
     @Environment(\.dynamicTypeSize) private var dynamicType
@@ -46,7 +47,9 @@ struct WidthThresholdReader<Content: View>: View {
     func isCompact(width: Double) -> Bool {
         #if os(iOS)
         if self.sizeClass == .compact {
-            return true
+            if verticalSizeClass == .compact {
+                return false
+            }
         }
         #endif
         if self.dynamicType >= dynamicTypeThreshold {

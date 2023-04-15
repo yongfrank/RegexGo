@@ -69,19 +69,20 @@ DEBIT     06/03/2022    Oxford Comma Supply Ltd.   £57.33
     let research = /(CREDIT|DEBIT)\s+(\d{1,2}\/\d{1,2}\/\d{4})/
     
     func regexStartSearch() {
-        let regexOfDelimiter = Regex {
-            "/"
-            Capture {
-                OneOrMore(.any)
-                OneOrMore {
-                    .word
-                    "hi"
-                }
-            }
-            "/"
-        }
-//        let anotherRegexDelimiter = /\/(.*)\//
-        let contentRegexString = regexResearch.firstMatch(of: regexOfDelimiter)
+//        let regexOfDelimiter = Regex {
+//            "/"
+//            Capture {
+//                OneOrMore(.any)
+//                OneOrMore {
+//                    .word
+//                    "hi"
+//                }
+//            }
+//            "/"
+//        }
+        let anotherRegexDelimiter = /\/(.*)\//
+        let contentRegexString = regexResearch.firstMatch(of: anotherRegexDelimiter)
+//        let contentRegexString = regexResearch.firstMatch(of: regexOfDelimiter)
         guard
             let contentRegexString = contentRegexString?.1,
             let regex =
