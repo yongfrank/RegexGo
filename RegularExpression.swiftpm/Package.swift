@@ -8,20 +8,20 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "RegularExpression",
+    name: "Regex Go",
     platforms: [
         .iOS("16.0")
     ],
     products: [
         .iOSApplication(
-            name: "RegularExpression",
+            name: "Regex Go",
             targets: ["AppModule"],
             bundleIdentifier: "com.yongfrank.RegularExpression",
             teamIdentifier: "L3P8YP4XRH",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .calculator),
-            accentColor: .presetColor(.blue),
+            appIcon: .asset("AppIcon"),
+            accentColor: .asset("AccentColor"),
             supportedDeviceFamilies: [
                 .pad,
                 .phone
@@ -43,7 +43,6 @@ let package = Package(
                 .process("Resources")
             ],
             swiftSettings: [
-//                .enableUpcomingFeature("BareSlashRegexLiterals")
                 .unsafeFlags(["-enable-bare-slash-regex"])
             ]
         )

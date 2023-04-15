@@ -61,6 +61,10 @@ Applicants can view their status by end of business day on Tuesday, May 9, 2023.
 > * [SwiftUI Live: Building a drag and drop word game](https://www.youtube.com/watch?v=ffV_fYcFoX0)
 > * [Build a Trello Clone App with SwiftUI](https://www.youtube.com/watch?v=Of_20rSjk7Y)
 > * [취준생을 위한 스위프트UI 앱만들기 드래그 앤 드랍 SwiftUI 3.0 fundamental Tutorial (2021) ios swiftui drag and drop](https://www.youtube.com/watch?v=Of_20rSjk7Y)
+> * [Stack Overflow for reorder items](https://stackoverflow.com/questions/62606907/swiftui-using-ondrag-and-ondrop-to-reorder-items-within-one-single-lazygrid)
+> * [SwiftUI can't tap in Spacer of HStack](https://stackoverflow.com/questions/57191013/swiftui-cant-tap-in-spacer-of-hstack)
+> * [[Gist] Goal: Reordering Items in HStack](https://stackoverflow.com/a/71941380/14069301)
+> * [GIST for above things](https://gist.github.com/jav-solo/82b16f302a208e679368493126232e55)
 
 [How to use regular expressions in Swift]: https://www.hackingwithswift.com/articles/108/how-to-use-regular-expressions-in-swift
 [Learn Regex]: https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md
@@ -86,6 +90,15 @@ Applicants can view their status by end of business day on Tuesday, May 9, 2023.
 > *
 
 markdown
+```
+
+```regex
+canvas[\s\S]*\.background
+
+canvas
+.apple
+.background
+apple
 ```
 
 ## [Learn Regex]
@@ -307,3 +320,23 @@ $1.localized
 > -enable-bare-slash-regex
 >
 > Swift 5.7's regex literals can work when using the Swift Package Manager, but they must be explicitly enabled in your Package.swift. By default, the new syntax is disabled since it's a source-breaking language change (due to the existing use of "/" in comment syntax and operators the / operator).
+
+## Creativity & Inspiration
+
+这里提供一些可能的选项：
+
+RegExer：简单明了，突出了正则表达式的特点。
+
+Matchmaker：这个名字有点调皮，但也表达了找到匹配项的意思。
+
+Regexify：这个名字类似于“Spotify”，给人一种有趣、现代的感觉。
+
+Patternize：这个名字把“pattern”（模式）和“customize”（定制）结合起来，表达了一个可以自定义正则表达式模式的意思。
+
+Regula：这个名字类似于“formula”，突出了正则表达式的逻辑和规则的特点。
+
+希望这些选项能够给您一些启示，祝您的应用取得成功！
+
+一个简短且有趣的名字对于让您的应用在 App Store 中脱颖而出非常重要。考虑到您的应用是一个正则表达式（regex）实验场，我为您提供了一个建议：RegExGo。
+
+这个名字短小精悍，同时包含了 "RegEx"（正则表达式的缩写）和 "Go"（表示快速、轻松上手）。这个名字容易让人联想到您的应用是一个方便、实用的正则表达式实践工具。

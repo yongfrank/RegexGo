@@ -1,5 +1,12 @@
+/*
+See the LICENSE.txt file for this sample’s licensing information.
+
+Abstract:
+The regular expression model.
+*/
+
 //
-//  File.swift
+//  RegularExpressionModel.swift
 //  
 //
 //  Created by Chu Yong on 4/2/23.
@@ -9,10 +16,10 @@ import Combine
 import SwiftUI
 
 @MainActor
-public class RegularExpressionModel: ObservableObject {
+public class RegexPlaygroundsModel: ObservableObject {
     @Published var progress: Double = 0.0
     @Published var columnVisibility = NavigationSplitViewVisibility.automatic
-    @Published var colorScheme: ColorScheme = .dark
+    @Published var colorScheme: ColorScheme = .light
     private var cancellable: AnyCancellable?
 
     init() {

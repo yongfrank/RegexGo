@@ -57,6 +57,6 @@ struct DocumentView: View {
 
 struct DocumentView_Previews: PreviewProvider {
     static var previews: some View {
-        DocumentView(PageSource.history.rawValue)
+        DocumentView(PageSource.firstPage.rawValue)
     }
 }

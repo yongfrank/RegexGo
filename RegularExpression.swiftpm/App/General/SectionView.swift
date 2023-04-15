@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/// A view useful for outer border and HUD (heads-up display) title
+///
+/// You need to add ScrollView by your self
 struct SectionView<Content: View>: View {
     
     private var title = ""

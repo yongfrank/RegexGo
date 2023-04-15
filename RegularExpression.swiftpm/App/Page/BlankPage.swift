@@ -73,6 +73,10 @@ DEBIT     06/03/2022    Oxford Comma Supply Ltd.   £57.33
             "/"
             Capture {
                 OneOrMore(.any)
+                OneOrMore {
+                    .word
+                    "hi"
+                }
             }
             "/"
         }

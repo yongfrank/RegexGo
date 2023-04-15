@@ -1,14 +1,20 @@
+/*
+
+Abstract:
+The single entry point for the Regex Playground app on iOS and macOS.
+*/
+
 import SwiftUI
 
 /// The app's entry point.
 ///
-/// The `MyApp` object is the app's entry point. Additionally, this is the object that keeps the app's state in the `model` and `store` parameters.
+/// The `RegexPlaygourndApp` object is the app's entry point. Additionally, this is the object that keeps the app's state in the `model` and `store` parameters.
 ///
 @main
-struct MyApp: App {
+struct RegexPlaygroundApp: App {
     /// The app's state.
-    @StateObject private var model = RegularExpressionModel()
-    
+    @StateObject private var model = RegexPlaygroundsModel()
+
     /// The app's body function.
     ///
     /// This app uses a [`WindowGroup`](https://developer.apple.com/documentation/swiftui/windowgroup) scene, which contains the root view of the app, ``ContentView``.
@@ -17,5 +23,8 @@ struct MyApp: App {
             ContentView(model: model)
                 .preferredColorScheme(model.colorScheme)
         }
+        #if os(macOS)
+        .defaultSize(width: 1000, height: 650)
+        #endif
     }
 }

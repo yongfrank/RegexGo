@@ -19,7 +19,7 @@ func isPageSource(_ pannel: Panel?) -> Bool {
 }
 
 struct FirstPage: View {
-    @ObservedObject var model: RegularExpressionModel
+    @ObservedObject var model: RegexPlaygroundsModel
     @Binding var navigationSelection: PageSource
 
     var body: some View {
@@ -42,6 +42,6 @@ struct FirstPage: View {
 
 struct FirstPage_Previews: PreviewProvider {
     static var previews: some View {
-        FirstPage(model: RegularExpressionModel(), navigationSelection: .constant(.firstPage))
+        FirstPage(model: RegexPlaygroundsModel(), navigationSelection: .constant(.firstPage))
     }
 }
