@@ -29,7 +29,7 @@ enum Rules:String, CaseIterable {
 }
 
 extension Rules {
-    static let passwordGameCases: [Rules] = [.alphaRule, .digitRule, .limitedAlphaNumericCombined, .limitedAlphaNumericSplit, .spaceRule]
+    static let passwordGameCases: [Rules] = [.alphaRule, .digitRule, .limitedAlphaNumericCombined]
     
     var name: String {
         switch self {
@@ -38,7 +38,7 @@ extension Rules {
         case .digitRule:
             return "🔢 Digit Only"
         case .limitedAlphaNumericCombined:
-            return "🔡 🔢 Digit & Alpha"
+            return "🔡 🔢 Digit & Alpha 4-12"
 //        case .limitedAlphaNumericSplit:
 //            return ""
         case .currencyRule:

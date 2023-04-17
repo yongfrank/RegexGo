@@ -19,7 +19,7 @@ struct RegexBuilderView: View {
     @State private var insertPosition: RegexBuilderLine?
     @State private var fileterKeyword = ""
     
-    @AppStorage("isShowTerminal") private var isShowTerminal = false
+    @AppStorage("isShowTerminal") private var isShowTerminal = true
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {

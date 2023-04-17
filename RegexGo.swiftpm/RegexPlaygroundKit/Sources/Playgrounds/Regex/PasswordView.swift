@@ -15,7 +15,7 @@ struct PasswordFilterList: Identifiable, Equatable {
 }
 
 struct PasswordView: View {
-    @State var passText = "WWDC23"
+    @State var passText = "WelcomeToWWDC23"
     @State var diagMsgs = [Diag]()
     @State var ruleList = [PasswordFilterList]()
     

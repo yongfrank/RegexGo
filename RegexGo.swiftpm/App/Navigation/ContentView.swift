@@ -15,9 +15,12 @@ struct ContentView: View {
     @ObservedObject var model: RegexPlaygroundsModel
     
     @State private var selection: Panel? = Panel.defaultPage
+    
     @State private var path = NavigationPath()
     
     @State private var isNight = false
+    
+    @AppStorage("navigationSelection") private var navigationSelectionData: Data?
     
     /// The view body.
     ///
@@ -41,7 +44,11 @@ struct ContentView: View {
             }
         }
         .onChange(of: selection) { _ in
-            path.removeLast(path.count)
+            self.path.removeLast(path.count)
+            storePersistentSelection(from: selection)
+        }
+        .onAppear {
+            loadPersistentSelection(from: navigationSelectionData)
         }
     }
     
@@ -72,6 +79,7 @@ struct ContentView: View {
         return false
     }
     
+    /// toolBarItems including Night Mode
     private var toolBarItems: some ToolbarContent {
         Group {
             if Panel.needNavigation.contains(self.selection ?? .settings) {
@@ -134,6 +142,18 @@ struct ContentView: View {
                 .foregroundColor(.secondary)
         }
         .frame(width: 200)
+    }
+}
+
+extension ContentView {
+    private func loadPersistentSelection(from data: Data?) {
+        guard let data = data, let persistentSelection = try? JSONDecoder().decode(Panel.self, from: data) else { return }
+        self.selection = persistentSelection
+    }
+    
+    private func storePersistentSelection(from panel: Panel?) {
+        guard let persistenceSelectionData = try? JSONEncoder().encode(panel ?? .pageSource(.welcome)) else { return }
+        self.navigationSelectionData = persistenceSelectionData
     }
 }
 

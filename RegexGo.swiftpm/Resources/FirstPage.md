@@ -1,3 +1,10 @@
+🔖 Page 2 - What's Regex, and what's Regex Go?
+
+A regex pattern is made up of a combination of characters and operators that define the search criteria. 🔍🧑‍💻 Some of the most common operators include the dot (.) to match any character, the asterisk (*) to match zero or more occurrences of the preceding character, and the question mark (?) to match zero or one occurrence of the preceding character.
+
+Regex is a powerful tool, but it can be complex to use and understand. 🤔💪 However, with practice and a good understanding of the syntax, you can quickly become proficient in using it to search and manipulate text in a variety of applications. 🚀👨‍💻
+
+
 ## Deadline April 20, 2023, at 14:59 p.m UTC+8
 
 Swift Student Challenge Submission

@@ -17,7 +17,7 @@ import SwiftUI
 /// An enum that represents the person's selection in the app's sidebar.
 ///
 /// The `Panel` enum encodes the views the person can select in the sidebar, and hence appear in the detail view.
-enum Panel: Hashable {
+enum Panel: Hashable, Codable {
     /// The value for the ``PageSource``
     case pageSource(PageSource)
     /// The value for the ``SecondPage``.
@@ -26,21 +26,10 @@ enum Panel: Hashable {
     case regexBuilder
     /// The value for the ``SettingsView``
     case settings
-    
-    static var hideProgress: [Panel] = [.pageSource(.secondPage), .regexBuilder]
-    static var miscPanels: [Panel] = [.settings]
-    static var playgrounds: [Panel] = [.regexPlayground, .regexBuilder]
-    static var needNavigation: [Panel] = [
-        .pageSource(.welcome),
-        .pageSource(.firstPage),
-        .pageSource(.secondPage),
-        .regexPlayground,
-        .regexBuilder
-    ]
 }
 
 /// An enum that represents the person's selection of Page in the app's sidebar.
-enum PageSource: String, CaseIterable {
+enum PageSource: String, CaseIterable, Codable {
     /// The value for the ``WelcomePageView``
     case welcome = "Welcome"
     /// The value for the ``FirstPage``
@@ -108,6 +97,16 @@ struct Sidebar: View {
 
 extension Panel {
     static var defaultPage = pageSource(.welcome)
+    static var hideProgress: [Panel] = [.pageSource(.secondPage), .regexBuilder]
+    static var miscPanels: [Panel] = [.settings]
+    static var playgrounds: [Panel] = [.regexPlayground, .regexBuilder]
+    static var needNavigation: [Panel] = [
+        .pageSource(.welcome),
+        .pageSource(.firstPage),
+        .pageSource(.secondPage),
+        .regexPlayground,
+        .regexBuilder
+    ]
     
     var panelName: String {
         switch self {
