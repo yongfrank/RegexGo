@@ -27,15 +27,20 @@ struct SettingsView: View {
                 }
                 
                 Section("About Author 🧑‍💻") {
-                    Button("Relevant App") {
+                    Button("🚩 Relevant App: Oh My Flag") {
                         isShowRelevantApp.toggle()
                     }
                     // https://www.hackingwithswift.com/quick-start/swiftui/how-to-recommend-another-app-using-appstoreoverlay 6446227923 1440611372
                     .appStoreOverlay(isPresented: $isShowRelevantApp) {
                         SKOverlay.AppConfiguration(appIdentifier: "6446227923", position: .bottom)
                     }
+                    
+                    Link("🌟 Star My Repository on GitHub", destination: URL(string: "https://github.com/yongfrank")!)
+                    
+                    Link("📖 Blog at yongfrank.github.com", destination: URL(string: "https://yongfrank.github.io/about")!) 
                 }
             }
+            .monospaced()
             .alert("Attention ⚠️", isPresented: $isShowAlert) {
                 Button("OK", role: .destructive) {
                     model.resetDefaults()

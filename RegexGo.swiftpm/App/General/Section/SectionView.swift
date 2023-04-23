@@ -108,7 +108,7 @@ extension SectionView {
     ///   - isTitleShowAlways: `true` means that title will not disappear
     ///   - content: What's inside section
     init(title: String = "", needPadding: Bool = true, borderType: BorderType = .outer,
-         isTitlePositionTop: Bool = false,
+         isTitlePositionTop: Bool = true,
          isTitleShowAlways: Bool = false,
          // TODO: Head Contents
          @ViewBuilder content: () -> Content) {

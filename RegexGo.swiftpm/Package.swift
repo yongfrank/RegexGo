@@ -19,9 +19,9 @@ let package = Package(
             bundleIdentifier: "com.yongfrank.RegexGo",
             teamIdentifier: "L3P8YP4XRH",
             displayVersion: "1.0",
-            bundleVersion: "1",
+            bundleVersion: "5",
             appIcon: .asset("AppIcon"),
-            accentColor: .presetColor(.blue),
+            accentColor: .presetColor(.orange),
             supportedDeviceFamilies: [
                 .pad,
                 .phone
@@ -35,9 +35,15 @@ let package = Package(
             appCategory: .utilities
         )
     ],
+    dependencies: [
+        .package(url: "https://github.com/FLEXTool/FLEX.git", "5.0.0"..<"6.0.0")
+    ],
     targets: [
         .executableTarget(
             name: "AppModule",
+            dependencies: [
+                .product(name: "FLEX", package: "flex")
+            ],
             path: ".",
             resources: [
                 .process("Resources")

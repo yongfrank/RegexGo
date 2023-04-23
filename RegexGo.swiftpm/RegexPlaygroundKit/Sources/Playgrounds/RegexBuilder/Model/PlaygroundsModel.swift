@@ -21,23 +21,24 @@ public final class PlaygroundsModel: ObservableObject {
     @Published var currentDragPage: RegexBuilderLine?
     @AppStorage("persistencePages") var persistencePages: Data?
     
+    /// Deprecated
     func printAllStr(pages: [RegexBuilderLine], text: String) -> String {
         var result = ""
-        for page in pages {
-            result += page.regexString.description
-        }
+//        for page in pages {
+//            result += page.regexString.description
+//        }
         guard let regexComponent = try? /\/(.*)\//.firstMatch(in: result)?.1, let regexpattern = try? Regex(String(regexComponent)) else { return "Component Error"}
         print(text, regexComponent)
         
         let findedResult = text.matches(of: regexpattern)
-        result += "\n===== 🤯 Result Area \(Date.now.formatted()) =====\n"
+//        result += "\n===== 🤯 Result Area \(Date.now.formatted()) =====\n"
         if findedResult.isEmpty {
             result += "Not Found\n"
         }
         for match in findedResult {
             result += "\(match.0)\n"
         }
-        result += "===== 🤯 Result Area \(Date.now.formatted()) =====\n"
+//        result += "===== 🤯 Result Area \(Date.now.formatted()) =====\n"
         return result
     }
     

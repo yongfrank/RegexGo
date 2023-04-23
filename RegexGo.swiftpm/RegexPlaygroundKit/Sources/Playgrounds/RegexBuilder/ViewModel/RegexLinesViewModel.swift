@@ -19,21 +19,24 @@ class RegexLinesViewModel: ObservableObject {
     
     func printAllStr(pages: [RegexBuilderLine], text: String) -> String {
         var result = ""
+        var resForRegex = ""
         for page in pages {
-            result += page.regexString.description
+            resForRegex += page.regexString.description
         }
-        guard let regexComponent = try? /\/(.*)\//.firstMatch(in: result)?.1, let regexpattern = try? Regex(String(regexComponent)) else { return "Component Error"}
+        guard let regexComponent = try? /\/(.*)\//.firstMatch(in: resForRegex)?.1, let regexpattern = try? Regex(String(regexComponent)) else { return "Component Error"}
         print(text, regexComponent)
         
         let findedResult = text.matches(of: regexpattern)
-        result += "\n===== 🤯 Result Area \(Date.now.formatted()) =====\n"
+//        result += "\n===== 🤯 Result Area \(Date.now.formatted()) =====\n"
+        result += Date().formatted(date: .numeric, time: .standard)
+        result += ":\n"
         if findedResult.isEmpty {
             result += "Not Found\n"
         }
         for match in findedResult {
             result += "\(match.0)\n"
         }
-        result += "===== 🤯 Result Area \(Date.now.formatted()) =====\n"
+//        result += "===== 🤯 Result Area \(Date.now.formatted()) =====\n"
         return result
     }
     

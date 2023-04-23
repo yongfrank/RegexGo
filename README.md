@@ -1,5 +1,25 @@
 # [Swift Student Challenge](https://developer.apple.com/wwdc23/swift-student-challenge/)
 
+## Form Detail
+
+在 App 中，我使用了 Swift Regex 和 RegexBuilder，两个在 WWDC22 推出的框架。广为流传的 Regex 诞生于上世纪 60 - 70 年代，他在文字处理过程中起到了非常大的作用，但也因为他出现的比较早，所以有很多不足的地方，例如难以阅读，难以排错。而在 WWDC22，RegexBuilder 的诞生，以 DSL 的形式去构建 Regex，让 Regex 更加易读，易于维护。我希望通过 Regex Go，让不了解 Regex 的人，能够通过简单的拖拽，就能够使用 Regex，而不需要去学习 Regex 的语法，让更多的人享受到 coding 带来的乐趣，效率的提高。
+
+In my app, I utilized two powerful frameworks, Swift Regex and RegexBuilder, which were both introduced at WWDC22. Regular Expressions (regex) have been a popular text processing tool since the 1960s-1970s, enabling us to quickly search and match strings in text. However, using regex can be challenging due to its complex syntax and difficulty in reading and debugging.
+
+At WWDC22, RegexBuilder was introduced as a DSL (domain-specific language) to construct regex in a more readable and maintainable manner. Through my app, Regex Go, my goal is to make it easier for individuals who are unfamiliar with Regex to use it. Users can easily drag and drop to promptly construct their own regex without having to learn the intricate syntax and rules. This will allow more individuals to appreciate the joy of coding and increase their work efficiency.
+
+## Details sharing
+
+从去年开始学习 iOS 到今年，我不仅收获了知识上的成长，更多的是收获了一群志同道合的朋友，他们的帮助让我在学习过程中不再孤单，也让我在学习过程中不断的成长。各种沙龙活动，各种技术分享。是这段经历为我打开了新世界的大门，让我不再局限于学校的课程，而是能够自由的去学习自己感兴趣的知识。从懵懂无知，到上架第一个 App，这一年的成长，让我感到非常幸运。
+
+Throughout the past year, from when I began learning iOS development to now, I have not only gained knowledge and skills, but also a community of like-minded friends. Their support and assistance have prevented me from feeling alone during the learning process and have propelled me toward growth. With various salons and technology-sharing events, this journey has opened new doors to a world beyond the limitations of school curriculums, allowing me to freely explore and learn about topics of interest. From a state of naivety and ignorance to launching my first app, this year of personal development has made me feel incredibly fortunate.
+
+I was able to launch my first app on the App Store thanks to the Swift Student Challenge from last year.
+
+https://apps.apple.com/us/app/oh-my-flag/id6446227923?itsct=apps_box_link&itscg=30200
+
+## Beyond 2023
+
 ## Deadline April 20, 2023, at 14:59 p.m UTC+8
 
 Swift Student Challenge Submission
@@ -65,6 +85,7 @@ Applicants can view their status by end of business day on Tuesday, May 9, 2023.
 > * [SwiftUI can't tap in Spacer of HStack](https://stackoverflow.com/questions/57191013/swiftui-cant-tap-in-spacer-of-hstack)
 > * [[Gist] Goal: Reordering Items in HStack](https://stackoverflow.com/a/71941380/14069301)
 > * [GIST for above things](https://gist.github.com/jav-solo/82b16f302a208e679368493126232e55)
+> * [✨Swift RegexBuilder – A New Way to Build Regular Expressions in iOS](https://quickbirdstudios.com/blog/regexbuilder/)
 
 [How to use regular expressions in Swift]: https://www.hackingwithswift.com/articles/108/how-to-use-regular-expressions-in-swift
 [Learn Regex]: https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md

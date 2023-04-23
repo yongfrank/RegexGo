@@ -16,11 +16,13 @@ enum PickerDetail: String, CaseIterable {
     case word
     case oneOrMoreWord
     case digit
-    case capture
+    case oneOrMoreDigit
+//    case capture
     case normalText
-    case regexCurlyBracket
+//    case choiceOf
     case oneOrMore
     case zeroOrMore
+    case regexCurlyBracket
 }
 
 extension PickerDetail {
@@ -28,8 +30,8 @@ extension PickerDetail {
         switch self {
         case .word:
             return [.word]
-        case .capture:
-            return [.captureLeft, .captureRight]
+//        case .capture:
+//            return [.captureLeft, .captureRight]
         case .normalText:
             return [.normalString(rawV: "default")]
         case .regexCurlyBracket:
@@ -42,6 +44,8 @@ extension PickerDetail {
             return [.digit]
         case .oneOrMoreWord:
             return [.oneOrMoreWord]
+        case .oneOrMoreDigit:
+            return [.oneOrMoreDigit]
         }
     }
     
@@ -51,12 +55,14 @@ extension PickerDetail {
             return "ℹ️ .word: Single Character"
         case .oneOrMoreWord:
             return "🔡 OneOrMore(.word): 1+ Characters"
-        case .capture:
-            return "🕸️ Capture { }"
+        case .oneOrMoreDigit:
+            return "🔢 OneOrMore(.digit): 1+ Digits"
+//        case .capture:
+//            return "🕸️ Capture { }"
         case .normalText:
             return "🔤 Normal Text"
         case .digit:
-            return "🔢 .digit"
+            return "1⃣️ .digit: Single Digit"
         case .regexCurlyBracket:
             return "🪄 Regex { }"
         case .oneOrMore:
@@ -101,17 +107,17 @@ struct RegexPickerView: View {
 //                            .frame(minHeight: 200)
             }
             .listStyle(.plain)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Picker("Choose", selection: $sheetCategory) {
-                        ForEach(AddPicker.allCases, id: \.self) { picker in
-                            Text(picker.rawValue)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                }
-            }
-            .navigationTitle("RegexBuilder")
+//            .toolbar {
+//                ToolbarItem(placement: .principal) {
+//                    Picker("Choose", selection: $sheetCategory) {
+//                        ForEach(AddPicker.allCases, id: \.self) { picker in
+//                            Text(picker.rawValue)
+//                        }
+//                    }
+//                    .pickerStyle(.segmented)
+//                }
+//            }
+            .navigationTitle("RegexBuilder🏗️")
             .alert("Error", isPresented: $isShowAlert) {
                 Button("OK") { isShowAlert.toggle() }
             } message: {

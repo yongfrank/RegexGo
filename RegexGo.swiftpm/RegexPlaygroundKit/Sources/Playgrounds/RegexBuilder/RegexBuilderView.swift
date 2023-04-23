@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct RegexBuilderView: View {
     
@@ -15,11 +16,13 @@ struct RegexBuilderView: View {
     @State private var text = ""
     @State private var showSheet = false
 
-    @AppStorage("lookUpText") private var lookUpText = "my email is myname.my@example.com"
+    @AppStorage("lookUpText") private var lookUpText = "my email is wwdc.23@developer.com, or you can mail to dont.wait.and.go.to@apple.park for more help"
     @State private var insertPosition: RegexBuilderLine?
     @State private var fileterKeyword = ""
     
-    @AppStorage("isShowTerminal") private var isShowTerminal = true
+    @AppStorage("isShowTerminal") private var isShowTerminal = false
+    
+    @EnvironmentObject var model: RegexPlaygroundsModel
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -28,9 +31,16 @@ struct RegexBuilderView: View {
                     TextField("Filter Text", text: $lookUpText, axis: .vertical)
                         .textFieldStyle(.noBorderCaptitalizedAutoCorrection)
                         .padding(5)
+                        .focused($keyboardState)
+                }
+                .onAppear {
+                    if model.playtimes == 0 {
+                        isShowHelp = true
+                        self.model.playtimes += 1
+                    }
                 }
                 
-                SectionView(title: "🏗️ Builder Area", needPadding: false, borderType: .inside) {
+                SectionView(title: "🏗️ Builder Area", needPadding: false, borderType: .inside, isTitlePositionTop: true) {
                     ScrollView {
                         draggableGrid
                     }
@@ -50,15 +60,15 @@ struct RegexBuilderView: View {
                 }
                 
                 if isShowTerminal {
-                    SectionView(title: "🕹️ Terminal", needPadding: false, borderType: .inside) {
+                    SectionView(title: "🕹️ Terminal", needPadding: false, borderType: .inside, isTitlePositionTop: true) {
                         TextEditor(text: self.$text)
+                            .focused($keyboardState)
                     }
-                    .transition(.slide)
+                    .transition(.move(edge: .trailing))
                 }
                 
             }
-            
-            SectionView(title: "hi frank",needPadding: false, borderType: .none) {
+            SectionView(title: "🕹️ Terminal is Here~",needPadding: false, borderType: .none) {
                 Toggle(isOn: $isShowTerminal) {
                     Image(systemName: "terminal")
                     //                    .overlay(Rou)
@@ -66,7 +76,24 @@ struct RegexBuilderView: View {
                 .toggleStyle(.button)
             }
         }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done🫣") {
+                    keyboardState = false
+                }
+            }
+        }
+//        .sheet(isPresented: $isShowHelp) {
+//            VideoPlayerView(player: AVPlayer(url: Bundle.main.url(forResource: "help", withExtension: "mp4")!))
+//        }
+        .fullScreenCover(isPresented: $isShowHelp) {
+            VideoPlayerView(player: AVPlayer(url: Bundle.main.url(forResource: "help", withExtension: "mp4")!))
+                .ignoresSafeArea()
+        }
     }
+    
+    @FocusState private var keyboardState: Bool
     
     // MARK: - local variables
     let columns = Array(repeating: GridItem(.flexible(), spacing: 45), count: 1)
@@ -112,7 +139,7 @@ struct RegexBuilderView: View {
             }
         }
     }
-    
+    @State private var isShowHelp = false
     var toolBarButtons: some View {
         Group {
             Button {
@@ -121,24 +148,34 @@ struct RegexBuilderView: View {
                 Image(systemName: "plus")
             }
 
+//            Button {
+//                self.vm.pages.append(.init(regexString: .captureLeft))
+//                self.vm.pages.append(.init(regexString: .captureRight))
+//            } label: {
+//                Image(systemName: "quote.opening")
+//            }
             Button {
-                self.vm.pages.append(.init(regexString: .captureLeft))
-                self.vm.pages.append(.init(regexString: .captureRight))
-            } label: {
-                Image(systemName: "quote.opening")
-            }
-            Button {
+                if self.text.isEmpty {
+                    model.addCompletionProgress(selection: Panel.pageSource(.secondPage))
+                }
                 self.text = vm.printAllStr(pages: vm.pages, text: self.lookUpText) + "\n" + self.text
+                self.isShowTerminal = true
             } label: {
                 Image(systemName: "printer")
             }
             Button {
-                withAnimation {
-                    self.text = ""
-                }
+                self.isShowHelp.toggle()
             } label: {
-                Image(systemName: "trash")
+                Image(systemName: "questionmark.circle")
             }
+
+//            Button {
+//                withAnimation {
+//                    self.text = ""
+//                }
+//            } label: {
+//                Image(systemName: "trash")
+//            }
         }
     }
 }

@@ -6,6 +6,10 @@ The app's root view.
 
 import SwiftUI
 
+#if DEBUG
+import FLEX
+#endif
+
 /// The root view in Food Truck.
 ///
 /// This view is the root view in ``RegexPlaygroundApp``'s scene.
@@ -31,24 +35,37 @@ struct ContentView: View {
     /// On iOS the [`NavigationSplitView`](https://developer.apple.com/documentation/swiftui/navigationsplitview)
     /// display a navigation stack with the ``Sidebar`` view as the root.
     var body: some View {
-        NavigationSplitView(columnVisibility: $model.columnVisibility) {
-            Sidebar(selection: $selection, progress: model.progress)
-        } detail: {
-            NavigationStack(path: $path) {
-                DetailColumn(selection: $selection, model: model)
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbar {
-                        toolBarItems
-                    }
-                    .toolbarBackground(.hidden, for: .automatic)
+        ZStack {
+            NavigationSplitView(columnVisibility: $model.columnVisibility) {
+                Sidebar(selection: $selection, model: model, progress: model.progress)
+            } detail: {
+                NavigationStack(path: $path) {
+                    DetailColumn(selection: $selection, model: model)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar {
+                            toolBarItems
+                        }
+                        .toolbarBackground(.hidden, for: .automatic)
+                }
             }
+            FireworkView(showFirework: model.isShowFirework)
         }
         .onChange(of: selection) { _ in
             self.path.removeLast(path.count)
             storePersistentSelection(from: selection)
+//            if self.selection == .pageSource(.secondPage) || self.selection == .regexBuilder {
+//                
+//            }
         }
         .onAppear {
             loadPersistentSelection(from: navigationSelectionData)
+        }
+        .onChange(of: self.model.isShowFirework) { newValue in
+            if self.model.isShowFirework == true {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                    self.model.isShowFirework = false
+                }
+            }
         }
     }
     
@@ -83,28 +100,42 @@ struct ContentView: View {
     private var toolBarItems: some ToolbarContent {
         Group {
             if Panel.needNavigation.contains(self.selection ?? .settings) {
-                ToolbarItemGroup(placement: .principal) {
+                ToolbarItemGroup(placement: .navigationBarTrailing  ) {
                     HStack {
                         pageNavigatorLeft
-                        if self.isCompact &&
-                            Panel.hideProgress.contains(self.selection ?? .settings) {
+//                            .border(.blue)
+                        if
+//                            self.isCompact &&
+                            Panel.hideProgress.contains(self.selection ?? .settings)
+                        {
                         } else {
                             progressBar
+//                                .border(.blue)
                         }
                         pageNavigatorRight
+//                            .border(.blue)
                     }
                 }
             }
-            
+
+            #if DEBUG
             ToolbarItemGroup {
-                Button {
-                    self.model.colorScheme = (
-                        self.model.colorScheme == .light ? .dark : .light
-                    )
-                } label: {
-                    Image(systemName: self.model.colorScheme == .light ? "moon" : "sun.max")
+                Button("Flex") {
+                    FLEXManager.shared.showExplorer()
                 }
+//                darkModeButton
             }
+            #endif
+        }
+    }
+    
+    private var darkModeButton: some View {
+        Button {
+            self.model.colorScheme = (
+                self.model.colorScheme == .light ? .dark : .light
+            )
+        } label: {
+            Image(systemName: self.model.colorScheme == .light ? "moon" : "sun.max")
         }
     }
     
@@ -131,17 +162,53 @@ struct ContentView: View {
     }
     
     private var progressBar: some View {
-        VStack(alignment: .leading) {
-            //                    withAnimation {
-            //                        Text(model.progress == 1.0 ? "Success" : "Loading")
-            //                    }
-            ProgressView(value: model.progress)
-                .animation(.default, value: model.progress)
-            Text((model.progress * 100).formatted() + "% completed")
-                .font(.caption)
-                .foregroundColor(.secondary)
+//        VStack(alignment: .leading) {
+//            //                    withAnimation {
+//            //                        Text(model.progress == 1.0 ? "Success" : "Loading")
+//            //                    }
+//            ProgressView(value: model.progress)
+//                .animation(.default, value: model.progress)
+//            Text((model.progress * 100).formatted() + "% completed")
+//                .font(.caption)
+//                .foregroundColor(.secondary)
+//        }
+//        .frame(width: 200)
+        VStack {
+            if self.selection == .pageSource(.welcome) || self.selection == .pageSource(.firstPage) || self.selection == .pageSource(.secondPage) {
+                Group {
+                    if model.completionProgress.contains(self.selection ?? .settings) {
+                        Image(systemName: "checkmark.circle.fill")
+//                            .resizable()
+//                            .scaledToFit()
+                            .foregroundColor(.accentColor)
+//                            .font(.title)
+                            .padding(.leading, 5)
+                            .transition(.scale.combined(with: .opacity))
+                    } else {
+                        Image(systemName: "circlebadge")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .foregroundColor(.accentColor)
+//                            .font(.title)
+//                            .foregroundColor(.gray)
+                            .foregroundColor(.secondary)
+                            .padding(.leading, 5)
+                            .transition(.scale.combined(with: .opacity))
+                    }
+                }
+                .onTapGesture {
+                    self.model.isShowFirework = true
+                }
+            } else {
+                Image(systemName: "swift")
+                    .foregroundColor(.accentColor)
+                    .padding(.leading, 5)
+            }
         }
-        .frame(width: 200)
+        .animation(Animation.timingCurve(0.44, 1.86, 0.61, 0.99, duration: 0.5), value: self.model.completionProgress)
+        .onTapGesture {
+            self.model.isShowFirework = true
+        }
     }
 }
 

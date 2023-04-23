@@ -20,6 +20,7 @@ enum RegexBuilderType: Codable {
     case oneOrMoreRight
     case digit
     case oneOrMoreWord
+    case oneOrMoreDigit
 }
 
 extension RegexBuilderType {
@@ -50,6 +51,8 @@ extension RegexBuilderType {
             return "\\d"
         case .oneOrMoreWord:
             return "[a-zA-Z]+"
+        case .oneOrMoreDigit:
+            return "[0-9]+"
         }
     }
     
@@ -79,6 +82,8 @@ extension RegexBuilderType {
             return ".digit"
         case .oneOrMoreWord:
             return "OneOrMore(.word)"
+        case .oneOrMoreDigit:
+            return "OneOrMore(.digit)"
         }
     }
 }
@@ -99,6 +104,7 @@ extension RegexBuilderLine {
         .init(regexString: .regexLeft),
         .init(regexString: .zeroOrMoreLeft),
         .init(regexString: .oneOrMoreWord),
+        .init(regexString: .oneOrMoreDigit),
         .init(regexString: .normalString(rawV: ".")),
         .init(regexString: .zeroOrMoreRight),
         .init(regexString: .normalString(rawV: "@")),

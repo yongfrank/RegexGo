@@ -33,7 +33,7 @@ struct DocumentView<Content: View>: View {
 
     var body: some View {
         ZStack(alignment: .top) {
-            SectionView(title: title, needPadding: false) {
+            SectionView(title: title, needPadding: false, isTitlePositionTop: true) {
                 ScrollView {
                     if isMarkDown {
                         Text(content ?? "nil content")

@@ -11,6 +11,7 @@ import RegexBuilder
 struct BlankPage: View {
     @State private var regexResearch: String = #"/(CREDIT|DEBIT)\s+(\d{1,2}\/\d{1,2}\/\d{4})/"#
     @State private var resultText: String = "nil"
+    @EnvironmentObject var model: RegexPlaygroundsModel
     
     // https://developer.apple.com/documentation/regexbuilder
     @State private var transactionOfView = """
@@ -65,9 +66,10 @@ struct BlankPage: View {
                 }
                 Button("DEBIT 🏦") {
                     self.regexResearch = #"/(DEBIT)\s+(\d{1,2}\/\d{1,2}\/\d{4}).*/"#
+                    model.addCompletionProgress(selection: Panel.pageSource(.firstPage))
                 }
                 Spacer()
-                Button("Done") {
+                Button("Done🫣") {
                     focusedField = nil
                 }
             }

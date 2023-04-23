@@ -46,13 +46,17 @@ struct DetailColumn: View {
                     .padding(.horizontal)
             }
         case .regexPlayground:
-            SectionView(title: Panel.regexPlayground.panelName, needPadding: false, borderType: .none, isTitlePositionTop: true) {
+            SectionView(
+//                title: Panel.regexPlayground.panelName,
+                needPadding: false, borderType: .none, isTitlePositionTop: true) {
                 BlankPage()
 //                SecondPage()
             }
             .padding(.horizontal)
         case .regexBuilder:
-            SectionView(title: Panel.regexBuilder.panelName, needPadding: false, borderType: .none, isTitlePositionTop: true) {
+            SectionView(
+//                title: Panel.regexBuilder.panelName,
+                needPadding: false, borderType: .none, isTitlePositionTop: true) {
                 RegexBuilderView()
             }
             .padding(.horizontal)

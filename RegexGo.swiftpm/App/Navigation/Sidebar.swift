@@ -49,6 +49,8 @@ struct Sidebar: View {
     /// This value is a binding, and the superview must pass in its value.
     @Binding var selection: Panel?
     
+    @ObservedObject var model: RegexPlaygroundsModel
+    
     var progress: Double
     
     /// The view body.
@@ -58,10 +60,27 @@ struct Sidebar: View {
         List(selection: $selection) {
             VStack(alignment: .leading) {
 //                Text(progress == 1.0 ? "Success" : "Loading")
-                Text((progress * 100).formatted() + "% completed")
+                HStack {
+                    Color.clear
+                        .frame(width: 40, height: 20)
+                        .animatingOverlay(for: progress * 100)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .animation(.default, value: progress)
+//                    Text("\(Int(progress * 100)) + % completed")
+                        
+                    Spacer()
+                    Button("Reset Progress") {
+                        withAnimation {
+                            self.model.completionProgress.removeAll()
+                            self.model.progress = 0
+                        }
+                    }
+                    .foregroundColor(.accentColor)
                     .font(.caption)
-                    .foregroundColor(.secondary)
+                }
                 ProgressView(value: progress)
+                    .animation(.default, value: self.model.progress)
             }
             
             Section("Pages 📖") {
@@ -97,7 +116,10 @@ struct Sidebar: View {
 
 extension Panel {
     static var defaultPage = pageSource(.welcome)
-    static var hideProgress: [Panel] = [.pageSource(.secondPage), .regexBuilder]
+    static var hideProgress: [Panel] = [
+//        .pageSource(.secondPage),
+//        .regexBuilder
+    ]
     static var miscPanels: [Panel] = [.settings]
     static var playgrounds: [Panel] = [.regexPlayground, .regexBuilder]
     static var needNavigation: [Panel] = [
@@ -117,7 +139,7 @@ extension Panel {
         case .regexBuilder:
             return "Builder Playground ⛷️"
         case .settings:
-            return "Settings 🔩"
+            return "Settings & ABOUT 🔩"
         }
     }
     var icon: String {
@@ -205,7 +227,7 @@ extension PageSource: CustomStringConvertible {
         case .firstPage:
             return "Common Regex 🤯"
         case .secondPage:
-            return "Regex Builder with DSL 🛠️"
+            return "RegexBuilder in DSL 🛠️"
         }
     }
     

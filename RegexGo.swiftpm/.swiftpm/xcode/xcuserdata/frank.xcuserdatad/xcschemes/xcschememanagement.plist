@@ -37,6 +37,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>Regex Go</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>RegularExpression</key>
 		<dict>
 			<key>primary</key>

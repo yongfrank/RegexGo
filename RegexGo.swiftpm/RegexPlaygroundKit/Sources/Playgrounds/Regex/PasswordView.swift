@@ -18,6 +18,7 @@ struct PasswordView: View {
     @State var passText = "WelcomeToWWDC23"
     @State var diagMsgs = [Diag]()
     @State var ruleList = [PasswordFilterList]()
+    @EnvironmentObject var model: RegexPlaygroundsModel
     
     var body: some View {
         VStack {
@@ -38,7 +39,7 @@ struct PasswordView: View {
         }
         .onAppear {
             for rule in Rules.passwordGameCases {
-                if rule == .alphaRule {
+                if rule == .alphaRule || rule == .limitedAlphaNumericCombined {
                     self.ruleList.append(.init(id: rule, isSubscribed: true))
                 } else {
                     self.ruleList.append(.init(id: rule))
@@ -77,6 +78,7 @@ struct PasswordView: View {
         }
         if diagMsgs.isEmpty {
             self.diagMsgs.append(Diag(message: "👍 Very Good, the password meets the requirements"))
+            model.addCompletionProgress(selection: Panel.pageSource(.welcome))
         }
     }
     
