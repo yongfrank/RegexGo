@@ -61,8 +61,15 @@ struct SettingsView: View {
     }
 }
 
-//struct SettingsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SettingsView()
-//    }
-//}
+struct SettingsView_Previews: PreviewProvider {
+    struct Settings: View {
+        @StateObject var model = RegexPlaygroundsModel()
+        @State var page: PageSource = .firstPage
+        var body: some View {
+            SettingsView(model: model, navigationSelection: $page)
+        }
+    }
+    static var previews: some View {
+        Settings()
+    }
+}

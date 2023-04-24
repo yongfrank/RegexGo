@@ -6,11 +6,7 @@ The app's root view.
 
 import SwiftUI
 
-#if DEBUG
-import FLEX
-#endif
-
-/// The root view in Food Truck.
+/// The root view in Regex Go.
 ///
 /// This view is the root view in ``RegexPlaygroundApp``'s scene.
 /// On macOS, and iPadOS it presents a split navigation view, while on iOS devices it presents a navigation stack, as the main interface of the app.
@@ -52,10 +48,6 @@ struct ContentView: View {
         }
         .onChange(of: selection) { _ in
             self.path.removeLast(path.count)
-            storePersistentSelection(from: selection)
-//            if self.selection == .pageSource(.secondPage) || self.selection == .regexBuilder {
-//                
-//            }
         }
         .onAppear {
             loadPersistentSelection(from: navigationSelectionData)
@@ -103,29 +95,16 @@ struct ContentView: View {
                 ToolbarItemGroup(placement: .navigationBarTrailing  ) {
                     HStack {
                         pageNavigatorLeft
-//                            .border(.blue)
-                        if
-//                            self.isCompact &&
-                            Panel.hideProgress.contains(self.selection ?? .settings)
-                        {
-                        } else {
+                        
+                        // Progress Bar
+                        if Panel.hideProgress.contains(self.selection ?? .settings) { } else {
                             progressBar
-//                                .border(.blue)
                         }
+                        
                         pageNavigatorRight
-//                            .border(.blue)
                     }
                 }
             }
-
-            #if DEBUG
-            ToolbarItemGroup {
-                Button("Flex") {
-                    FLEXManager.shared.showExplorer()
-                }
-//                darkModeButton
-            }
-            #endif
         }
     }
     
@@ -144,7 +123,6 @@ struct ContentView: View {
             Button {
                 self.selection = self.selection?.previous()
             } label: {
-                //                    Image(systemName: "arrowtriangle.left")
                 Image(systemName: "chevron.backward")
             }
             .disabled(self.selection?.isFirst ?? true)
@@ -155,42 +133,22 @@ struct ContentView: View {
         Button {
             self.selection = self.selection?.next()
         } label: {
-            //                    Image(systemName: "arrowtriangle.forward")
             Image(systemName: "chevron.forward")
         }
         .disabled(self.selection?.isLast ?? true)
     }
     
     private var progressBar: some View {
-//        VStack(alignment: .leading) {
-//            //                    withAnimation {
-//            //                        Text(model.progress == 1.0 ? "Success" : "Loading")
-//            //                    }
-//            ProgressView(value: model.progress)
-//                .animation(.default, value: model.progress)
-//            Text((model.progress * 100).formatted() + "% completed")
-//                .font(.caption)
-//                .foregroundColor(.secondary)
-//        }
-//        .frame(width: 200)
         VStack {
             if self.selection == .pageSource(.welcome) || self.selection == .pageSource(.firstPage) || self.selection == .pageSource(.secondPage) {
                 Group {
                     if model.completionProgress.contains(self.selection ?? .settings) {
                         Image(systemName: "checkmark.circle.fill")
-//                            .resizable()
-//                            .scaledToFit()
                             .foregroundColor(.accentColor)
-//                            .font(.title)
                             .padding(.leading, 5)
                             .transition(.scale.combined(with: .opacity))
                     } else {
                         Image(systemName: "circlebadge")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .foregroundColor(.accentColor)
-//                            .font(.title)
-//                            .foregroundColor(.gray)
                             .foregroundColor(.secondary)
                             .padding(.leading, 5)
                             .transition(.scale.combined(with: .opacity))

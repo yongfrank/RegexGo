@@ -35,15 +35,9 @@ let package = Package(
             appCategory: .utilities
         )
     ],
-    dependencies: [
-        .package(url: "https://github.com/FLEXTool/FLEX.git", "5.0.0"..<"6.0.0")
-    ],
     targets: [
         .executableTarget(
             name: "AppModule",
-            dependencies: [
-                .product(name: "FLEX", package: "flex")
-            ],
             path: ".",
             resources: [
                 .process("Resources")
