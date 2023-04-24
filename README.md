@@ -2,10 +2,7 @@
 
 # 👋 Welcome to Regex Go
 
-[![GitHub Stars](https://img.shields.io/github/stars/yongfrank/RegexGo.svg?style=social)](https://github.com/yongfrank/OhMyFlag-WWDC22)
-[![Follow on twitter](https://img.shields.io/twitter/follow/cyongfrank)](https://twitter.com/intent/follow?screen_name=cyongfrank)
-[![About Frank](https://img.shields.io/badge/Find_More_Project-yongfrank.github.io/about-9ef)](https://yongfrank.github.io/about)
-[![Blog Page](https://img.shields.io/badge/Blog_Page-yongfrank.github.io-success)](https://yongfrank.github.io/)
+[![GitHub Stars](https://img.shields.io/github/stars/yongfrank/RegexGo.svg?style=social)](https://github.com/yongfrank/RegexGo)
 
 Master Regex with Regex Go!
 
@@ -29,6 +26,10 @@ Regex Go utilized two powerful frameworks, Swift Regex and RegexBuilder, which w
 At WWDC22, RegexBuilder was introduced as a DSL (domain-specific language) to construct regex in a more readable and maintainable manner. Regex Go's aim is to make it easier for individuals who are unfamiliar with Regex to use it. Users can easily drag and drop to promptly construct their own regex without having to learn the intricate syntax and rules. This will allow more individuals to appreciate the joy of coding and increase their work efficiency.
 
 ## More Details
+
+[![Follow on twitter](https://img.shields.io/twitter/follow/cyongfrank)](https://twitter.com/intent/follow?screen_name=cyongfrank)
+[![About Frank](https://img.shields.io/badge/Find_More_Project-yongfrank.github.io/about-9ef)](https://yongfrank.github.io/about)
+[![Blog Page](https://img.shields.io/badge/Blog_Page-yongfrank.github.io-success)](https://yongfrank.github.io/)
 
 Throughout the past year, from when I began learning iOS development to now, I have not only gained knowledge and skills, but also a community of like-minded friends. Their support and assistance have prevented me from feeling alone during the learning process and have propelled me toward growth. With various salons and technology-sharing events, this journey has opened new doors to a world beyond the limitations of school curriculums, allowing me to freely explore and learn about topics of interest. From a state of naivety and ignorance to launching my first app, this year of personal development has made me feel incredibly fortunate.
 
