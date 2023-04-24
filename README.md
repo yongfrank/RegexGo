@@ -13,53 +13,13 @@ Master Regex with Regex Go!
 
 <!--more-->
 
-<!-- https://blog.csdn.net/lishimin1012/article/details/88949602 -->
-<!-- markdownlint-disable MD033 -->
-<style>
-@media screen and (max-width: 960px){
-    ul#container
-    {
-    overflow: hidden;
-    overflow-x: scroll;
-    width: 88%; /* or whatever */
-    /* height: 100%; or whatever */
-    white-space: nowrap;
-    }
-    
-    ul#container li
-    {
-    display: inline-block;
-    width: 70%; /* or whatever */
-    /* height: 100%; or whatever */
-    }
-}
- 
-@media screen and (min-width: 960px){
-      ul#container
-    {
-    overflow: hidden;
-    overflow-x: scroll;
-    width: 96%; /* or whatever */
-    /* height: 100%; or whatever */
-    white-space: nowrap;
-    }
-    
-    ul#container li
-    {
-    display: inline-block;
-    width: 30%; /* or whatever */
-    /* height: 100%; or whatever */
-    }
-}
-</style>
-<!-- https://stackoverflow.com/questions/2728715/iphone-scroll-images-horizontally-like-in-appstore -->
-<ul id="container">
-  <li><image src="./images/1.jpg"></image></li>
-  <li><image src="./images/2.jpg"></image></li>
-  <li><image src="./images/3.jpg"></image></li>
-  <li><image src="./images/4.jpg"></image></li>
-  <li><image src="./images/5.jpg"></image></li>
-</ul>
+<div align=center>
+  <image src="./images/1.jpg" width="200"></image>
+  <image src="./images/2.jpg" width="200"></image>
+  <image src="./images/3.jpg" width="200"></image>
+  <image src="./images/4.jpg" width="200"></image>
+  <image src="./images/5.jpg" width="200"></image>
+</div>
 
 
 ## What's inside the App
@@ -72,44 +32,14 @@ At WWDC22, RegexBuilder was introduced as a DSL (domain-specific language) to co
 
 Throughout the past year, from when I began learning iOS development to now, I have not only gained knowledge and skills, but also a community of like-minded friends. Their support and assistance have prevented me from feeling alone during the learning process and have propelled me toward growth. With various salons and technology-sharing events, this journey has opened new doors to a world beyond the limitations of school curriculums, allowing me to freely explore and learn about topics of interest. From a state of naivety and ignorance to launching my first app, this year of personal development has made me feel incredibly fortunate.
 
-<style>
-.links {
-    text-align: center;
-    font-weight: 500;
-    color: #424245;
-    font-size: 0.8em;
-    margin-top: 50px;
-    margin-bottom: 20px;
-}
+<p valign="center">
+  <!-- <a href="https://chat.nuxt.dev"><img width="20px" src="./images/discord.svg" alt="Discord"></a>&nbsp;&nbsp; -->
+  <a href="https://twitter.com/cyongfrank"><img width="20px" src="./images/twitter.svg" alt="Twitter"></a>&nbsp;&nbsp;
+  <a href="https://github.com/yongfrank"><img width="20px" src="./images/github.svg" alt="GitHub"></a>
+</p>
 
-.links__item {
-    color: #424245;
-    text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    .links {
-        color: rgba(255, 255, 255, 0.2);
-    }
-    .links__item {
-        color: rgba(255, 255, 255, 0.5);
-    }
-}
-
-.links__item:hover {
-    animation: colorChange 0.5s both;
-}
-@keyframes colorChange {
-    from {
-        color: rgba(255, 255, 255, 0.5);
-    }
-    to {
-        color: #F2A33C;
-    }
-}
-</style>
 <div class="links">
-    <a href="./privacy-policy/" title="privacy" class="links__item" style="text-decoration: none;">Privacy</a>
+    <a href="https://yongfrank.github.io/regex-go/privacy-policy/" title="privacy" class="links__item" style="text-decoration: none;">Privacy</a>
     |
     <a href="https://www.dropbox.com/sh/k43u1bkqd4lsrnc/AABQvkI5rkY8keLz2yAwj6Lta?dl=0" title="PressKit at Dropbox" class="links__item" style="text-decoration: none;">PressKit</a>
     |
