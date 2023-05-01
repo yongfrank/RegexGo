@@ -1,22 +1,85 @@
 # [Swift Student Challenge](https://developer.apple.com/wwdc23/swift-student-challenge/)
 
-## Form Detail
+## Remarkable Project
 
-在 App 中，我使用了 Swift Regex 和 RegexBuilder，两个在 WWDC22 推出的框架。广为流传的 Regex 诞生于上世纪 60 - 70 年代，他在文字处理过程中起到了非常大的作用，但也因为他出现的比较早，所以有很多不足的地方，例如难以阅读，难以排错。而在 WWDC22，RegexBuilder 的诞生，以 DSL 的形式去构建 Regex，让 Regex 更加易读，易于维护。我希望通过 Regex Go，让不了解 Regex 的人，能够通过简单的拖拽，就能够使用 Regex，而不需要去学习 Regex 的语法，让更多的人享受到 coding 带来的乐趣，效率的提高。
+> [create4world forum](https://www.create4world.com/c/scholar/8)
+
+* [Auto Driving](https://github.com/danielriege/WWDC23-Submission)
+* [Bouncer-WWDC23](https://twitter.com/Freddie_Nic/status/1649078220120096768?s=20) | [Prepare for WWDC23 ZHY](https://youtu.be/XSjS0nZrEhQ)
+* [Circle Puzzle](https://www.create4world.com/t/submitted-wwdc23-circle-puzzle/513)
+* [Boat, Vlog - WWDC23 Prepare for WWDC23 ZHY](https://youtu.be/X0J17jhvOoc)
+* [IFS Yi Kerman - Prepare for WWDC23](https://github.com/xiaoyu2006/IFS)
+* [Yaoyao - Prepare for WWDC23](https://github.com/wyy511511/ChineseCharacterLearning)
+* [ZHY - Prepare for WWDC23](https://github.com/wyy511511/ChineseCharacterLearning)
+* [Chemistry - 已经有人在论坛分享今年提交的作品了 Prepare for WWDC](https://www.create4world.com/t/submitted-chemmystery-swift-student-challenge-2023/511?u=hard2work)
+
+## Precious Feedback 
+
+### 恒宇@SwiftUI Salon
+
+> 这个每次翻页都会展示 会考虑减少展示的频率么 用户看几次应该就知道怎么用了
+>
+> 看到了横屏适配 做的很棒啊
+
+### 义乌哥 & 不要问就是买 Bot
+
+> 看了半天没看懂是干嘛的，但是regex应该是正则相关的
+>
+> 可以增加一些更优化的说明
+> 
+> 我记得当时用的时候，有一个地方突然就强行播放视频了。【引导弹窗 - 是否播放教学视频】
+>
+> 我当时在听歌，很生气
+> 
+> 就像我浏览xhs一样
+>
+> 突然有个点开是视频
+>
+> xhs大部分是图文
+
+### 乔布斯孟
+
+> 这是编译器和terminal集成在一起的工具是吧？
+>
+> 那你看我这么理解这个app对不对，这是一个类似iPad的playground的东西，目的是帮助我们理解和具体查看正则表达式的用法及效果,然后使用了关卡方式来循序渐进？
+>
+> 这个产品应该是面向兴趣没有太扎实的基础的人吧？
+>
+> 我是这么觉得的，这个app面向的受众要考虑一下，iPad 的 Swift playgrounds就是面向没有基础的人，然后可以通过它而更容易理解Swift编程体系，它的举例子描述特别有意思，很形象。而regex go是需要有点基础的人才能明白，它这样一来就和循序渐进的教学有冲突。我觉得这是个矛盾点，受众和功能之间的协调性可能不平衡，在软件介绍说上也是如此。这是我个人的见解，也不是很全面，希望能帮助你优化一些内容。
+>
+> 我感觉 language barrier 其实也占一部分，如果是 DSL 那部分，母语是英语的，应该就比较好看懂
+
+### Apple
+
+```
+print那个，功能不太明显
+
+第三个 Page 进去有视频吗？有。但是加个字幕吧
+
+最好有个1-2句话介绍app干嘛的页面
+
+不过ssc的话还有essay说明
+```
+
+## Form Detail
 
 In my app, I utilized two powerful frameworks, Swift Regex and RegexBuilder, which were both introduced at WWDC22. Regular Expressions (regex) have been a popular text processing tool since the 1960s-1970s, enabling us to quickly search and match strings in text. However, using regex can be challenging due to its complex syntax and difficulty in reading and debugging.
 
 At WWDC22, RegexBuilder was introduced as a DSL (domain-specific language) to construct regex in a more readable and maintainable manner. Through my app, Regex Go, my goal is to make it easier for individuals who are unfamiliar with Regex to use it. Users can easily drag and drop to promptly construct their own regex without having to learn the intricate syntax and rules. This will allow more individuals to appreciate the joy of coding and increase their work efficiency.
 
-## Details sharing
+在 App 中，我使用了 Swift Regex 和 RegexBuilder，两个在 WWDC22 推出的框架。广为流传的 Regex 诞生于上世纪 60 - 70 年代，他在文字处理过程中起到了非常大的作用，但也因为他出现的比较早，所以有很多不足的地方，例如难以阅读，难以排错。而在 WWDC22，RegexBuilder 的诞生，以 DSL 的形式去构建 Regex，让 Regex 更加易读，易于维护。我希望通过 Regex Go，让不了解 Regex 的人，能够通过简单的拖拽，就能够使用 Regex，而不需要去学习 Regex 的语法，让更多的人享受到 coding 带来的乐趣，效率的提高。
 
-从去年开始学习 iOS 到今年，我不仅收获了知识上的成长，更多的是收获了一群志同道合的朋友，他们的帮助让我在学习过程中不再孤单，也让我在学习过程中不断的成长。各种沙龙活动，各种技术分享。是这段经历为我打开了新世界的大门，让我不再局限于学校的课程，而是能够自由的去学习自己感兴趣的知识。从懵懂无知，到上架第一个 App，这一年的成长，让我感到非常幸运。
+> 那你看我这么理解这个app对不对，这是一个类似iPad的playground的东西，目的是帮助我们理解和具体查看正则表达式的用法及效果,然后使用了关卡方式来循序渐进？
+
+## Details sharing
 
 Throughout the past year, from when I began learning iOS development to now, I have not only gained knowledge and skills, but also a community of like-minded friends. Their support and assistance have prevented me from feeling alone during the learning process and have propelled me toward growth. With various salons and technology-sharing events, this journey has opened new doors to a world beyond the limitations of school curriculums, allowing me to freely explore and learn about topics of interest. From a state of naivety and ignorance to launching my first app, this year of personal development has made me feel incredibly fortunate.
 
 I was able to launch my first app on the App Store thanks to the Swift Student Challenge from last year.
 
 https://apps.apple.com/us/app/oh-my-flag/id6446227923?itsct=apps_box_link&itscg=30200
+
+从去年开始学习 iOS 到今年，我不仅收获了知识上的成长，更多的是收获了一群志同道合的朋友，他们的帮助让我在学习过程中不再孤单，也让我在学习过程中不断的成长。各种沙龙活动，各种技术分享。是这段经历为我打开了新世界的大门，让我不再局限于学校的课程，而是能够自由的去学习自己感兴趣的知识。从懵懂无知，到上架第一个 App，这一年的成长，让我感到非常幸运。
 
 ## Beyond 2023
 
