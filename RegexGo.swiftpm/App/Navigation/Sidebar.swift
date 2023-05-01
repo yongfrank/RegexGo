@@ -130,7 +130,7 @@ extension Panel {
         .regexBuilder
     ]
     
-    var panelName: String {
+    var panelName: LocalizedStringKey {
         switch self {
         case .pageSource(_):
             return "Pages"
@@ -220,7 +220,7 @@ extension PageSource: CustomStringConvertible {
         return self.rawValue
     }
     
-    var panelName: String {
+    var panelName: LocalizedStringKey {
         switch self {
         case .welcome:
             return "Welcome 🥳 "

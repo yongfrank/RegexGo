@@ -12,7 +12,7 @@ import SwiftUI
 /// You need to add ScrollView by your self
 struct SectionView<Content: View>: View {
     
-    private var title = ""
+    private var title: LocalizedStringKey = ""
     private let showingBorder = false
     private let content: Content
     private let needPadding: Bool
@@ -43,7 +43,7 @@ struct SectionView<Content: View>: View {
                 .mask(RoundedRectangle(cornerRadius: borderType.cornerRadius))
             
             if showTitle && title != "" {
-                Text("\(title)")
+                Text(self.title)
                     .font(.body.monospaced())
                     .padding()
                     .background(Material.ultraThin)
@@ -107,7 +107,7 @@ extension SectionView {
     ///   - isTitlePositionTop: `true` means that title will show up in the top
     ///   - isTitleShowAlways: `true` means that title will not disappear
     ///   - content: What's inside section
-    init(title: String = "", needPadding: Bool = true, borderType: BorderType = .outer,
+    init(title: LocalizedStringKey = "", needPadding: Bool = true, borderType: BorderType = .outer,
          isTitlePositionTop: Bool = true,
          isTitleShowAlways: Bool = false,
          // TODO: Head Contents

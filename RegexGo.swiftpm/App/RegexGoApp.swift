@@ -28,6 +28,11 @@ struct RegexPlaygroundApp: App {
                 .preferredColorScheme(model.colorScheme)
                 .monospaced()
                 .environmentObject(model)
+                #if DEBUG
+                .onAppear {
+//                    print(FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first)
+                }
+                #endif
         }
         #if os(macOS)
         .defaultSize(width: 1000, height: 650)

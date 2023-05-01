@@ -8,6 +8,7 @@
 import SwiftUI
 import AVKit
 
+#if os(iOS)
 struct VideoPlayerView: UIViewControllerRepresentable {
     let player: AVPlayer
 
@@ -24,6 +25,7 @@ struct VideoPlayerView: UIViewControllerRepresentable {
 
     }
 }
+#endif
 
 //struct QuestionView: View {
 //    @Binding var isShowHelp: Bool

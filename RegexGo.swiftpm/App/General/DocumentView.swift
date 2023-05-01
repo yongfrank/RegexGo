@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MarkdownUI
 
 /// This View is Used for render Markdown file
 struct DocumentView<Content: View>: View {
@@ -14,17 +15,32 @@ struct DocumentView<Content: View>: View {
     private let docFont: Font
     
     private let filename: String
-    private let title: String
+    private let title: LocalizedStringKey
     
     private let contentView: Content
+//    private let usingExternalMarkdownPackage: Bool
     
-    private var content: LocalizedStringKey? {
+    private var content: LocalizedStringKey {
         if let filepathUrl = Bundle.main.url(forResource: filename, withExtension: "md") {
-            return try? LocalizedStringKey(
+            guard let stringInFile = try? LocalizedStringKey(
                 String(contentsOf: filepathUrl)
-            )
+            ) else {
+                return "nil content"
+            }
+            return stringInFile
         }
         return "Unable to load"
+    }
+    
+    private var contentString: String {
+        if let filepathUrl = Bundle.main.url(forResource: filename, withExtension: "md") {
+            guard let stringInFile = try? String(contentsOf: filepathUrl) else {
+                return "nil content"
+            }
+            return stringInFile
+        }
+        return "Unable to load"
+
     }
     
     private var indicating: Bool {
@@ -36,10 +52,13 @@ struct DocumentView<Content: View>: View {
             SectionView(title: title, needPadding: false, isTitlePositionTop: true) {
                 ScrollView {
                     if isMarkDown {
-                        Text(content ?? "nil content")
-                        /// On iOS, the person using the app touches and holds on a selectable Text view, which brings up a system menu with menu items appropriate for the current context. These menu items operate on the entire contents of the Text view; the person can’t select a range of text like they can on macOS.
-                            .textSelection(.enabled)
-                            .font(docFont)
+//                        Text(content ?? "nil content")
+//                        /// On iOS, the person using the app touches and holds on a selectable Text view, which brings up a system menu with menu items appropriate for the current context. These menu items operate on the entire contents of the Text view; the person can’t select a range of text like they can on macOS.
+//                            .textSelection(.enabled)
+//                            .font(docFont)
+//                            .padding()
+                        Markdown(contentString)
+                            .markdownTheme(.docC)
                             .padding()
                         contentView
                             .padding(.bottom)
@@ -62,12 +81,12 @@ struct DocumentView<Content: View>: View {
     /// - Parameters:
     ///   - filename: markdown filename
     ///   - docFont: rendered file font
-    init(_ filename: String, _ docFont: Font = .body.monospaced(), title: String = "", isMarkdown: Bool = true, @ViewBuilder content: () -> Content) {
+    init(_ filename: String, _ docFont: Font = .body.monospaced(), title: LocalizedStringKey = "", isMarkdown: Bool = true, @ViewBuilder content: () -> Content) {
         self.filename = filename
         self.docFont = docFont
         
         if title == "" {
-            self.title = filename
+            self.title = LocalizedStringKey(filename)
         } else {
             self.title = title
         }
@@ -80,7 +99,7 @@ struct DocumentView<Content: View>: View {
     /// - Parameters:
     ///   - filename: markdown filename
     ///   - docFont: rendered file font
-    init(_ filename: PageSource, _ docFont: Font = .body.monospaced(), title: String, isMarkdown: Bool = true, @ViewBuilder content: () -> Content) {
+    init(_ filename: PageSource, _ docFont: Font = .body.monospaced(), title: LocalizedStringKey, isMarkdown: Bool = true, @ViewBuilder content: () -> Content) {
         self.filename = filename.description
         self.docFont = docFont
         
@@ -99,7 +118,7 @@ struct DocumentView<Content: View>: View {
     ///   - isMarkDown: defalut no
     ///   - title: HUD Title
     ///   - content: Custom View
-    init(isMarkDown: Bool = false, title: String, @ViewBuilder content: () -> Content) {
+    init(isMarkDown: Bool = false, title: LocalizedStringKey, @ViewBuilder content: () -> Content) {
         self.isMarkDown = isMarkDown
         self.title = title
         self.docFont = .body.monospaced()

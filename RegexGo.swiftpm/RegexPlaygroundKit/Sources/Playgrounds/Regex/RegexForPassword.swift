@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Diag: Equatable {
 //: Hashable, Codable, Identifiable {
@@ -31,7 +32,7 @@ enum Rules:String, CaseIterable {
 extension Rules {
     static let passwordGameCases: [Rules] = [.alphaRule, .digitRule, .limitedAlphaNumericCombined]
     
-    var name: String {
+    var name: LocalizedStringKey {
         switch self {
         case .alphaRule:
             return "🔤 Alpha Only"
@@ -58,7 +59,7 @@ extension Rules {
 //        case .punctuationCharacters:
 //            <#code#>
         default:
-            return String(describing: self)
+            return LocalizedStringKey(String(describing: self))
         }
     }
 }

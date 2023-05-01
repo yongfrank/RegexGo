@@ -49,7 +49,7 @@ extension PickerDetail {
         }
     }
     
-    var displayName: String {
+    var displayName: LocalizedStringKey {
         switch self {
         case .word:
             return "ℹ️ .word: Single Character"

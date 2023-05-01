@@ -6,9 +6,9 @@ A common regex pattern is made up of a combination of characters and operators t
 
 let's look at the regex pattern in the TextField.
 
-\```regex
+```regex
 /(CREDIT|DEBIT)\s+(\d{1,2}\/\d{1,2}\/\d{4})/
-\```
+```
 
 1⃣️ Part
 

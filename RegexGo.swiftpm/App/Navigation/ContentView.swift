@@ -48,6 +48,7 @@ struct ContentView: View {
         }
         .onChange(of: selection) { _ in
             self.path.removeLast(path.count)
+            self.storePersistentSelection(from: selection)
         }
         .onAppear {
             loadPersistentSelection(from: navigationSelectionData)
