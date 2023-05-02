@@ -1,0 +1,169 @@
+/* No comment provided by engineer. */
+"🌟 Star My Repository on GitHub" = "🌟 在 GitHub 上为开源的 Regex Go 点一个 Star 吧";
+
+/* No comment provided by engineer. */
+"🏗️ Builder Area" = "🏗️ 搭建区域";
+
+/* No comment provided by engineer. */
+"🏷️ Regex Result Area ✍️" = "🏷️ 正则结果区域 ✍️";
+
+/* Localizable.strings
+  RegexGo
+
+  Created by Frank Chu on 5/2/23. */
+"👾 Playground" = "👾 游乐场";
+
+/* No comment provided by engineer. */
+"📊 Data Area ✍️" = "📊 数据区域 ✍️";
+
+/* No comment provided by engineer. */
+"📖 Blog at yongfrank.github.com" = "📖 个人博客: yongfrank.github.com";
+
+/* No comment provided by engineer. */
+"🔡 🔢 Digit & Alpha 4-12" = "🔡 🔢 数字 & 字母 4-12 位";
+
+/* No comment provided by engineer. */
+"🔡 OneOrMore(.word): 1+ Characters" = "🔡 OneOrMore(.word)：1个以上的字符";
+
+/* No comment provided by engineer. */
+"🔢 Digit Only" = "🔢 仅数字";
+
+/* No comment provided by engineer. */
+"🔢 OneOrMore(.digit): 1+ Digits" = "🔢 OneOrMore(.digit)：1个以上的数字";
+
+/* No comment provided by engineer. */
+"🔤 Alpha Only" = "🔤 仅字母";
+
+/* No comment provided by engineer. */
+"🔤 Normal Text" = "🔤 正常文本";
+
+/* No comment provided by engineer. */
+"🕹️ Terminal" = "🕹️ 终端";
+
+/* No comment provided by engineer. */
+"🕹️ Terminal is Here~" = "🕹️ 终端在这里~";
+
+/* No comment provided by engineer. */
+"🪄 Regex { }" = "🪄 Regex { }： 正则符号";
+
+"ZeroOrMore { }" = "ZeroOrMore { }：0个以上";
+
+/* No comment provided by engineer. */
+"🚩 Relevant App: Oh My Flag" = "🚩 相关 App: Oh My Flag";
+
+/* No comment provided by engineer. */
+"1⃣️ .digit: Single Digit" = "1⃣️ .digit：1个数字";
+
+/* No comment provided by engineer. */
+"About App 🤖" = "关于 APP 🤖";
+
+/* No comment provided by engineer. */
+"About Author 🧑‍💻" = "关于作者 🧑‍💻";
+
+/* No comment provided by engineer. */
+"All the data in the app will be erased." = "App 内所有的数据都会被清除。";
+
+/* No comment provided by engineer. */
+"Attention ⚠️" = "注意 ⚠️";
+
+/* No comment provided by engineer. */
+"Builder Playground ⛷️" = "Builder Playground ⛷️";
+
+/* No comment provided by engineer. */
+"CHANGE LANGUAGE" = "更改语言";
+
+/* No comment provided by engineer. */
+"Common Regex 🤯" = "常见的 Regex 🤯";
+
+/* No comment provided by engineer. */
+"Create random number" = "创建随机的数字";
+
+/* No comment provided by engineer. */
+"CREDIT 💳" = "CREDIT 信用账户 💳";
+
+/* No comment provided by engineer. */
+"Currency Rule" = "货币规则";
+
+/* No comment provided by engineer. */
+"DEBIT 🏦" = "DEBIT 借记账户 🏦";
+
+/* No comment provided by engineer. */
+"Done🫣" = "完成 🫣";
+
+/* No comment provided by engineer. */
+"Error" = "错误";
+
+/* No comment provided by engineer. */
+"Filter keyword" = "过滤关键词";
+
+/* No comment provided by engineer. */
+"Filter Text" = "过滤文本";
+
+/* No comment provided by engineer. */
+"Hello" = "你好";
+
+/* No comment provided by engineer. */
+"Hello, world!" = "你好，世界！";
+
+/* No comment provided by engineer. */
+"Hello, World!" = "你好，世界！";
+
+/* No comment provided by engineer. */
+"ℹ️ .word: Single Character" = "ℹ️ .word: 单一字符";
+
+/* No comment provided by engineer. */
+"Manually Compact Size Class" = "手动紧凑的尺寸";
+
+/* No comment provided by engineer. */
+"Misc 🦭" = "其他设置 🦭";
+
+/* No comment provided by engineer. */
+"OK" = "好";
+
+/* No comment provided by engineer. */
+"OneOrMore { }" = "OneOrMore { }：1个以上";
+
+/* No comment provided by engineer. */
+"Pages" = "章节";
+
+/* No comment provided by engineer. */
+"Pages 📖" = "章节 📖";
+
+/* No comment provided by engineer. */
+"Password" = "密码";
+
+/* No comment provided by engineer. */
+"Playgrounds 🎊" = "Playgrounds 游乐场 🎊";
+
+/* No comment provided by engineer. */
+"Regex Go 🛫" = "Regex Go 🛫";
+
+/* No comment provided by engineer. */
+"Regex Playground 👾" = "Regex Playground 👾";
+
+/* No comment provided by engineer. */
+"RegexBuilder in DSL 🛠️" = "DSL 的 RegexBuilder 🛠️";
+
+/* No comment provided by engineer. */
+"RegexBuilder🏗️" = "RegexBuilder 🏗️";
+
+/* No comment provided by engineer. */
+"RESET APP" = "重置 App";
+
+/* No comment provided by engineer. */
+"Reset Progress" = "重置进度";
+
+/* No comment provided by engineer. */
+"Settings & ABOUT 🔩" = "设置 & 关于 🔩";
+
+/* No comment provided by engineer. */
+"Unable to load" = "无法加载文件";
+
+/* No comment provided by engineer. */
+"Welcome 🥳 " = "欢迎 🥳";
+
+"MUST be alpha only" = "必须只包含字母";
+"MUST be numeric ONLY" = "必须只包含数字";
+"MIN 4 AlphaNumeric MAX 12 AlphaNumeric" = "最少4个字母数字组合，最多12个字母数字组合";
+"START MIN 4 Alpha MAX 12 Alpha, FINISH MIN 2 numeric, MAX 4 numeric" = "开头最少4个字母，最多12个字母，结尾最少2个数字，最多4个数字";
+"👍 Very Good, the password meets the requirements" = "👍 非常好，密码符合要求。";

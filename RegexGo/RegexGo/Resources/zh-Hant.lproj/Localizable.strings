@@ -1,0 +1,236 @@
+/* 
+  Localizable.strings
+  RegexGo
+
+  Created by Frank Chu on 5/2/23.
+  
+*/
+/* No comment provided by engineer. */
+"🌟 Star My Repository on GitHub" = "🌟 給我的 GitHub 存儲庫點個贊吧";
+
+/* No comment provided by engineer. */
+"🏗️ Builder Area" = "🏗️ 構建區域";
+
+/* No comment provided by engineer. */
+"🏷️ Regex Result Area ✍️" = "🏷️ 正則結果區域 ✍️";
+
+/* Localizable.strings
+RegexGo
+
+Created by Frank Chu on 5/2/23. */
+"👾 Playground" = "👾 遊樂場";
+
+/* No comment provided by engineer. */
+"📊 Data Area ✍️" = "📊 數據區域 ✍️";
+
+/* No comment provided by engineer. */
+"📖 Blog at yongfrank.github.com" = "📖 個人博客: yongfrank.github.com";
+
+/* No comment provided by engineer. */
+"🔡 🔢 Digit & Alpha 4-12" = "🔡 🔢 數字和字母 4-12 位";
+
+/* No comment provided by engineer. */
+"🔡 OneOrMore(.word): 1+ Characters" = "🔡 OneOrMore(.word)：1個以上的字符";
+
+/* No comment provided by engineer. */
+"🔢 Digit Only" = "🔢 僅數字";
+
+/* No comment provided by engineer. */
+"🔢 OneOrMore(.digit): 1+ Digits" = "🔢 OneOrMore(.digit)：1個以上的數字";
+
+/* No comment provided by engineer. */
+"🔤 Alpha Only" = "🔤 僅字母";
+
+/* No comment provided by engineer. */
+"🔤 Normal Text" = "🔤 正常文本";
+
+/* No comment provided by engineer. */
+"🕹️ Terminal" = "🕹️ 終端";
+
+/* No comment provided by engineer. */
+"🕹️ Terminal is Here~" = "🕹️ 終端在這裡~";
+
+/* No comment provided by engineer. */
+"🪄 Regex { }" = "🪄 正則表達式 { } 符號";
+
+/* No comment provided by engineer. */
+"🚩 Relevant App: Oh My Flag" = "🚩 相關 App: Oh My Flag";
+
+/* No comment provided by engineer. */
+"1⃣️ .digit: Single Digit" = "1⃣️ .digit：1個數字";
+
+/* No comment provided by engineer. */
+"About App 🤖" = "關於 APP 🤖";
+
+/* No comment provided by engineer. */
+"About Author 🧑‍💻" = "關於作者 🧑‍💻";
+
+/* No comment provided by engineer. */
+"All the data in the app will be erased." = "App 內所有的數據都會被清除。";
+
+/* No comment provided by engineer. */
+"Attention ⚠️" = "注意 ⚠️";
+
+/* No comment provided by engineer. */
+"Builder Playground ⛷️" = "構建遊樂場 ⛷️";
+
+/* No comment provided by engineer. */
+"🌟 Star My Repository on GitHub" = "🌟 在 GitHub 上為開源的 Regex Go 點一個 Star 吧";
+
+/* No comment provided by engineer. */
+"🏗️ Builder Area" = "🏗️ 搭建區域";
+
+/* No comment provided by engineer. */
+"🏷️ Regex Result Area ✍️" = "🏷️ 正則結果區域 ✍️";
+
+/* Localizable.strings
+RegexGo
+
+Created by Frank Chu on 5/2/23. */
+"👾 Playground" = "👾 遊樂場";
+
+/* No comment provided by engineer. */
+"📊 Data Area ✍️" = "📊 數據區域 ✍️";
+
+/* No comment provided by engineer. */
+"📖 Blog at yongfrank.github.com" = "📖 個人博客: yongfrank.github.com";
+
+/* No comment provided by engineer. */
+"🔡 🔢 Digit & Alpha 4-12" = "🔡 🔢 數字 & 字母 4-12 位";
+
+/* No comment provided by engineer. */
+"🔡 OneOrMore(.word): 1+ Characters" = "🔡 OneOrMore(.word)：1 個以上的字符";
+
+"ZeroOrMore { }" = "ZeroOrMore { }：0 個以上";
+
+/* No comment provided by engineer. */
+"🔢 Digit Only" = "🔢 僅數字";
+
+/* No comment provided by engineer. */
+"🔢 OneOrMore(.digit): 1+ Digits" = "🔢 OneOrMore(.digit)：1 個以上的數字";
+
+/* No comment provided by engineer. */
+"🔤 Alpha Only" = "🔤 僅字母";
+
+/* No comment provided by engineer. */
+"🔤 Normal Text" = "🔤 正常文本";
+
+/* No comment provided by engineer. */
+"🕹️ Terminal" = "🕹️ 終端";
+
+/* No comment provided by engineer. */
+"🕹️ Terminal is Here~" = "🕹️ 終端在這裡~";
+
+/* No comment provided by engineer. */
+"🪄 Regex { }" = "🪄 Regex { } 符號";
+
+/* No comment provided by engineer. */
+"🚩 Relevant App: Oh My Flag" = "🚩 相關 App: Oh My Flag";
+
+/* No comment provided by engineer. */
+"1⃣️ .digit: Single Digit" = "1⃣️ .digit：1 個數字";
+
+/* No comment provided by engineer. */
+"About App 🤖" = "關於 APP 🤖";
+
+/* No comment provided by engineer. */
+"About Author 🧑‍💻" = "關於作者 🧑‍💻";
+
+/* No comment provided by engineer. */
+"All the data in the app will be erased." = "App 內所有的數據都會被清除。";
+
+/* No comment provided by engineer. */
+"Attention ⚠️" = "注意 ⚠️";
+
+/* No comment provided by engineer. */
+"Builder Playground ⛷️" = "Builder Playground ⛷️";
+
+"CHANGE LANGUAGE" = "更改語言";
+
+"Common Regex 🤯" = "常見的正規表示式 🤯";
+
+"Create random number" = "創建隨機數字";
+
+"CREDIT 💳" = "CREDIT 信用卡帳戶 💳";
+
+"Currency Rule" = "貨幣規則";
+
+"DEBIT 🏦" = "DEBIT 借記卡帳戶 🏦";
+
+"Done🫣" = "完成 🫣";
+
+"Error" = "錯誤";
+
+"Filter keyword" = "過濾關鍵詞";
+
+/* 未提供工程師的評論。 */
+"Filter Text" = "過濾文本";
+
+/* 工程師未提供評論。 */
+"Hello" = "你好";
+
+/* 工程師未提供評論。 */
+"Hello, world!" = "你好，世界！";
+
+/* 工程師未提供評論。 */
+"Hello, World!" = "你好，世界！";
+
+/* 工程師未提供評論。 */
+"ℹ️ .word: Single Character" = "ℹ️ .word：單一字符";
+
+/* 工程師未提供評論。 */
+"Manually Compact Size Class" = "手動緊湊的大小類";
+
+/* 工程師未提供評論。 */
+"Misc 🦭" = "其他設置 🦭";
+
+/* 工程師未提供評論。 */
+"OK" = "好";
+
+/* 工程師未提供評論。 */
+"OneOrMore { }" = "OneOrMore { }：一個以上";
+
+/* 工程師未提供評論。 */
+"Pages" = "章節";
+
+/* 工程師未提供評論。 */
+"Pages 📖" = "章節 📖";
+
+/* 工程師未提供評論。 */
+"Password" = "密碼";
+
+/* 工程師未提供評論。 */
+"Playgrounds 🎊" = "Playgrounds 遊樂場 🎊";
+
+/* 工程師未提供評論。 */
+"Regex Go 🛫" = "Regex Go 🛫";
+
+/* 工程師未提供評論。 */
+"Regex Playground 👾" = "Regex Playground 👾";
+
+/* 工程師未提供評論。 */
+"RegexBuilder in DSL 🛠️" = "DSL 的 RegexBuilder 🛠️";
+
+/* 工程師未提供評論。 */
+"RegexBuilder🏗️" = "RegexBuilder 🏗️";
+
+/* 工程師未提供評論。 */
+"RESET APP" = "重置 App";
+
+/* 工程師未提供評論。 */
+"Reset Progress" = "重置進度";
+
+/* 工程師未提供評論。 */
+"Settings & ABOUT 🔩" = "設置 & 關於 🔩";
+
+/* 工程師未提供評論。 */
+"Unable to load" = "無法加載文件";
+
+/* 工程師未提供評論。 */
+"Welcome 🥳 " = "歡迎 🥳";
+
+"MUST be alpha only" = "僅能為字母";
+"MUST be numeric ONLY" = "僅能為數字";
+"MIN 4 AlphaNumeric MAX 12 AlphaNumeric" = "最少 4 個字母或數字，最多 12 個字母或數字";
+"START MIN 4 Alpha MAX 12 Alpha, FINISH MIN 2 numeric, MAX 4 numeric" = "開頭最少 4 個字母，最多 12 個字母，結尾最少 2 個數字，最多 4 個數字";
+"👍 Very Good, the password meets the requirements" = "👍 非常好，密碼符合要求。";

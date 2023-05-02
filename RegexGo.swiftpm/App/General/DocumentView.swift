@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import MarkdownUI
+//import MarkdownUI
 
 /// This View is Used for render Markdown file
 struct DocumentView<Content: View>: View {
@@ -52,14 +52,14 @@ struct DocumentView<Content: View>: View {
             SectionView(title: title, needPadding: false, isTitlePositionTop: true) {
                 ScrollView {
                     if isMarkDown {
-//                        Text(content ?? "nil content")
-//                        /// On iOS, the person using the app touches and holds on a selectable Text view, which brings up a system menu with menu items appropriate for the current context. These menu items operate on the entire contents of the Text view; the person can’t select a range of text like they can on macOS.
-//                            .textSelection(.enabled)
-//                            .font(docFont)
-//                            .padding()
-                        Markdown(contentString)
-                            .markdownTheme(.docC)
+                        Text(content)
+                        /// On iOS, the person using the app touches and holds on a selectable Text view, which brings up a system menu with menu items appropriate for the current context. These menu items operate on the entire contents of the Text view; the person can’t select a range of text like they can on macOS.
+                            .textSelection(.enabled)
+                            .font(docFont)
                             .padding()
+//                        Markdown(contentString)
+//                            .markdownTheme(.docC)
+//                            .padding()
                         contentView
                             .padding(.bottom)
                     } else {

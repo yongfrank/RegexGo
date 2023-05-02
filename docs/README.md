@@ -424,3 +424,24 @@ Regula：这个名字类似于“formula”，突出了正则表达式的逻辑�
 一个简短且有趣的名字对于让您的应用在 App Store 中脱颖而出非常重要。考虑到您的应用是一个正则表达式（regex）实验场，我为您提供了一个建议：RegExGo。
 
 这个名字短小精悍，同时包含了 "RegEx"（正则表达式的缩写）和 "Go"（表示快速、轻松上手）。这个名字容易让人联想到您的应用是一个方便、实用的正则表达式实践工具。
+
+**Hello world from Frank**
+
+📺 How to make games with Pegboard
+
+📎 Chapter 0 - Pegboard
+
+# Hello world 
+
+This *is* ~Frank~.
+
+> I love you.
+
+That's was fantastic
+
+## Working with static text (Laying out text neatly)
+
+> * [hws - How to add advanced text styling using AttributedString](https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-advanced-text-styling-using-attributedstring)
+> * [hws - How to render Markdown content in text](https://www.hackingwithswift.com/quick-start/swiftui/how-to-render-markdown-content-in-text)
+> * [Using Markdown in SwiftUI](https://www.appcoda.com/swiftui-markdown/)
+> * [AttributedString](https://www.fatbobman.com/posts/attributedString/)
