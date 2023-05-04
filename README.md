@@ -1,3 +1,13 @@
+<!--
+ * @Author: Frank Chu
+ * @Date: 2023-04-27 09:36:19
+ * @LastEditors: Frank Chu
+ * @LastEditTime: 2023-05-02 21:32:18
+ * @FilePath: /wwdc23/README.md
+ * @Description: 
+ * 
+ * Copyright (c) 2023 by ${git_name}, All Rights Reserved. 
+-->
 [![cover image](./images/cover.jpg)](https://apps.apple.com/app/regex-go/id6447801504)
 
 # 👋 Welcome to Regex Go
@@ -5,12 +15,11 @@
 [![GitHub Stars](https://img.shields.io/github/stars/yongfrank/RegexGo.svg?style=social)](https://github.com/yongfrank/RegexGo)
 
 Master Regex with Regex Go!
-  """_summary_
-  """
+
 🤗 Say goodbye to tedious text processing tasks with Regex Go - your ultimate tool for seamless string manipulation using Regex and user-friendly RegexBuilder 🤩.
 
 <!--more-->
-
+<!-- Markdownlint-disable MD033 -->
 <div align=center>
   <image src="./images/1.jpg" width="200"></image>
   <image src="./images/2.jpg" width="200"></image>
