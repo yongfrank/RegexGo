@@ -118,6 +118,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		015C9AB42A036C7000707483 /* In-App Purchase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "In-App Purchase";
+			sourceTree = "<group>";
+		};
 		016D359B29F195CA00F14620 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +179,7 @@
 		FE67C18F29FFCFE7000A96DC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				015C9AB42A036C7000707483 /* In-App Purchase */,
 				FE67C19029FFCFE7000A96DC /* SettingsView.swift */,
 			);
 			path = Settings;
